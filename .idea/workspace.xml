@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1211b3d9-0ac7-4be0-988f-b04f3fafa697" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="8272c51b-d82a-470e-a54a-ddcf28145c54" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2aLNzrGXmPyHnQwUHSYado5gVit" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Matloob/Personal-projects/DollarX/assets/images/png&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;emulator&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Matloob\Personal-projects\DollarX\assets\images\png" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\deposit\widgets" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\referalls\widgets" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\dashboard\widgets" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\dashboard\cubit" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\withdraw\cubit\withdraw_data" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\deposit\cubit\deposit_save" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\deposit" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\authentication\cubits\register" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\authentication\cubits\login" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1211b3d9-0ac7-4be0-988f-b04f3fafa697" name="Changes" comment="" />
+      <created>1704094165669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704094165669</updated>
+    </task>
+    <task id="LOCAL-00001" summary="ShiftConfirmationDialog&#10;RejectUnassignedDialog">
+      <option name="closed" value="true" />
+      <created>1704115809677</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704115809677</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ShiftByNameDialog&#10;PressingDialog">
+      <option name="closed" value="true" />
+      <created>1704177138739</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704177138739</updated>
+    </task>
+    <task id="LOCAL-00003" summary="FilterDialog">
+      <option name="closed" value="true" />
+      <created>1704180409685</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704180409685</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add callbacks into dialogs">
+      <option name="closed" value="true" />
+      <created>1704196854191</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704196854191</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add callbacks into dialogs">
+      <option name="closed" value="true" />
+      <created>1704200795495</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704200795495</updated>
+    </task>
+    <task id="LOCAL-00006" summary="add TextField in RejectReason Dialog">
+      <option name="closed" value="true" />
+      <created>1704262880679</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704262880679</updated>
+    </task>
+    <task id="LOCAL-00007" summary="attach all dialogs">
+      <option name="closed" value="true" />
+      <created>1704264938585</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704264938585</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add lot api">
+      <option name="closed" value="true" />
+      <created>1704461728499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704461728499</updated>
+    </task>
+    <task id="LOCAL-00009" summary="add lot api&#10;get design list api&#10;get fabric list api&#10;get piece list api">
+      <option name="closed" value="true" />
+      <created>1704695482037</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704695482037</updated>
+    </task>
+    <task id="LOCAL-00010" summary="unassigned lot repo, state and cubit">
+      <option name="closed" value="true" />
+      <created>1704698066033</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704698066033</updated>
+    </task>
+    <task id="LOCAL-00011" summary="unassigned lot repo, state and cubit">
+      <option name="closed" value="true" />
+      <created>1704698322256</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1704698322256</updated>
+    </task>
+    <task id="LOCAL-00012" summary="rejected lot repo, state and cubit">
+      <option name="closed" value="true" />
+      <created>1704700111878</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1704700111878</updated>
+    </task>
+    <task id="LOCAL-00013" summary="embroidery lot repo, state and cubit">
+      <option name="closed" value="true" />
+      <created>1704710669625</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704710669625</updated>
+    </task>
+    <task id="LOCAL-00014" summary="cutting and cmt unit(lot repo, state and cubit)">
+      <option name="closed" value="true" />
+      <created>1704720685227</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1704720685227</updated>
+    </task>
+    <task id="LOCAL-00015" summary="pressing and quality lot ( repo, api, state and cubit)">
+      <option name="closed" value="true" />
+      <created>1704782173186</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1704782173186</updated>
+    </task>
+    <task id="LOCAL-00016" summary="pagination">
+      <option name="closed" value="true" />
+      <created>1704787849278</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1704787849278</updated>
+    </task>
+    <task id="LOCAL-00017" summary="pagination unassigned_lot_page">
+      <option name="closed" value="true" />
+      <created>1704792452971</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1704792452971</updated>
+    </task>
+    <task id="LOCAL-00018" summary="change image url">
+      <option name="closed" value="true" />
+      <created>1704796707889</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1704796707889</updated>
+    </task>
+    <task id="LOCAL-00019" summary="search query (CMT Unit, Embroidery Unit, Quality Lot, Cutting Lot)">
+      <option name="closed" value="true" />
+      <created>1704797368522</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1704797368522</updated>
+    </task>
+    <task id="LOCAL-00020" summary="search page (widget,api,cubit,state)">
+      <option name="closed" value="true" />
+      <created>1704800992292</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1704800992292</updated>
+    </task>
+    <task id="LOCAL-00021" summary="pressing dialog confirm callback">
+      <option name="closed" value="true" />
+      <created>1704806228942</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1704806228942</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add callback on search page">
+      <option name="closed" value="true" />
+      <created>1704807913766</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704807913766</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add callback on search page">
+      <option name="closed" value="true" />
+      <created>1704808095168</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704808095168</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ShiftConfirmationDialog&#10;RejectUnassignedDialog" />
+    <MESSAGE value="ShiftByNameDialog&#10;PressingDialog" />
+    <MESSAGE value="FilterDialog" />
+    <MESSAGE value="add callbacks into dialogs" />
+    <MESSAGE value="add TextField in RejectReason Dialog" />
+    <MESSAGE value="attach all dialogs" />
+    <MESSAGE value="add lot api" />
+    <MESSAGE value="add lot api&#10;get design list api&#10;get fabric list api&#10;get piece list api" />
+    <MESSAGE value="unassigned lot repo, state and cubit" />
+    <MESSAGE value="rejected lot repo, state and cubit" />
+    <MESSAGE value="embroidery lot repo, state and cubit" />
+    <MESSAGE value="cutting and cmt unit(lot repo, state and cubit)" />
+    <MESSAGE value="pressing and quality lot ( repo, api, state and cubit)" />
+    <MESSAGE value="pagination" />
+    <MESSAGE value="pagination unassigned_lot_page" />
+    <MESSAGE value="change image url" />
+    <MESSAGE value="search query (CMT Unit, Embroidery Unit, Quality Lot, Cutting Lot)" />
+    <MESSAGE value="search page (widget,api,cubit,state)" />
+    <MESSAGE value="pressing dialog confirm callback" />
+    <MESSAGE value="add callback on search page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add callback on search page" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="dart-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
