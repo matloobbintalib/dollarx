@@ -1,11 +1,13 @@
 
 import 'package:dollarx/constants/app_colors.dart';
+import 'package:dollarx/modules/referalls/models/referral_response.dart';
 import 'package:dollarx/utils/extensions/extended_context.dart';
 import 'package:flutter/cupertino.dart';
 
 class ReferralListWidget extends StatelessWidget {
   final int index ;
-  const ReferralListWidget({super.key, required this.index});
+  final LevelReferral levelReferral;
+  const ReferralListWidget({super.key, required this.index, required this.levelReferral});
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +26,12 @@ class ReferralListWidget extends StatelessWidget {
           ),
           SizedBox(width: 8,),
           Expanded(
-            child: Text("DAX0010045",
+            child: Text(levelReferral.referralId,
               style: context.textTheme.bodySmall?.copyWith(fontSize: 11),),
           ),
           SizedBox(width: 8,),
           Expanded(
-            child: Text("DAX0010045",
+            child: Text(levelReferral.parentId,
               style: context.textTheme.bodySmall?.copyWith(fontSize: 11),),
           ),
         ],

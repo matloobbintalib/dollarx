@@ -38,7 +38,7 @@ class AuthRepository {
       UserModel userModel = authResponse.data.user;
       await _userAccountRepository.saveUserInDb(userModel);
       await _sessionRepository.setToken(authResponse.token);
-      _dioClient.setToken(authResponse.token);
+      await _dioClient.setToken(authResponse.token);
       await _sessionRepository.setLoggedIn(true);
       return authResponse;
     } on DioException catch (e, stackTrace) {
@@ -53,10 +53,12 @@ class AuthRepository {
   Future<AuthResponse> register(RegisterInput signupInput) async {
     try {
       var response = await _dioClient.post(Endpoints.register,data: signupInput.toFormData());
+      print('Response --- ${response.data}');
       AuthResponse authResponse = AuthResponse.fromJson(response.data);
       UserModel userModel = authResponse.data.user;
       await _userAccountRepository.saveUserInDb(userModel);
       await _sessionRepository.setToken(authResponse.token);
+      await _dioClient.setToken(authResponse.token);
       await _sessionRepository.setLoggedIn(true);
       return authResponse;
     } on DioException catch (e, stackTrace) {
@@ -98,6 +100,20 @@ class AuthRepository {
   Future<BaseResponse> verifyOtp(VerifyOtpInput input) async {
     try {
       var response = await _dioClient.post(Endpoints.verifyOtp,data: input.toFormData());
+      BaseResponse baseResponse = BaseResponse.fromJson(response.data);
+      return baseResponse;
+    } on DioException catch (e, stackTrace) {
+      _log.e(e, stackTrace: stackTrace);
+      throw ApiError.fromDioException(e);
+    } catch (e) {
+      _log.e(e);
+      throw ApiError(message: '$e', code: 0);
+    }
+  }
+
+  Future<BaseResponse> logout() async {
+    try {
+      var response = await _dioClient.post(Endpoints.logout);
       BaseResponse baseResponse = BaseResponse.fromJson(response.data);
       return baseResponse;
     } on DioException catch (e, stackTrace) {

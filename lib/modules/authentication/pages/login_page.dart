@@ -2,15 +2,12 @@ import 'package:dollarx/modules/dashboard/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:dollarx/config/config.dart';
 import 'package:dollarx/constants/app_colors.dart';
 import 'package:dollarx/modules/authentication/models/login_input.dart';
 import 'package:dollarx/modules/authentication/pages/forgot_password_page.dart';
 import 'package:dollarx/modules/authentication/pages/register_page.dart';
-import 'package:dollarx/modules/authentication/pages/reset_password_page.dart';
 import 'package:dollarx/modules/authentication/widgets/password_suffix_widget.dart';
-import 'package:dollarx/modules/home/pages/home_page.dart';
 import 'package:dollarx/ui/widgets/base_scaffold.dart';
 import 'package:dollarx/ui/widgets/on_click.dart';
 import 'package:dollarx/utils/utils.dart';
@@ -58,7 +55,7 @@ class _LoginViewState extends State<LoginView> {
           ToastLoader.show();
         } else if (state.loginStatus == LoginStatus.success) {
           ToastLoader.remove();
-          NavRouter.push(context, DashboardPage());
+          NavRouter.pushAndRemoveUntil(context, DashboardPage());
         } else if (state.loginStatus == LoginStatus.error) {
           ToastLoader.remove();
           context.showSnackBar(state.message);
@@ -67,9 +64,12 @@ class _LoginViewState extends State<LoginView> {
       builder: (context, state) {
         return BaseScaffold(
           safeAreaTop: true,
-          body: SingleChildScrollView(
-            child: Form(
-              key: formKey,
+          body: Form(
+            key: formKey,
+            autovalidateMode: state.isAutoValidate
+                ? AutovalidateMode.always
+                : AutovalidateMode.disabled,
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   SizedBox(

@@ -228,8 +228,9 @@ class _InputFieldState extends State<InputField> {
           ),
         ),
         Positioned(
-          right: 0,
-          top: -1,
+          right: 16,
+          top: 0,
+          bottom: 0,
           child: Align(
             alignment: Alignment.centerRight,
             child: widget.suffixIcon,

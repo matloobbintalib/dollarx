@@ -1,27 +1,22 @@
-import 'package:dollarx/modules/user/cubits/user_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'confirmation_dialog.dart';
 
 sealed class Dialogs {
   Dialogs_();
 
-  static Future<void> showLogOutConfirmationDialog(
-    BuildContext context,
+  static Future<bool> showLogOutConfirmationDialog(
+    BuildContext context
   ) async {
     final confirmed = await _showConfirmationDialog(
       context,
       title: 'Sign Out',
       message: 'Are you sure you want to sign out?',
     );
-
-    if (confirmed && context.mounted) {
-      context.read<UserCubit>().logout();
-    }
+    return confirmed;
   }
 
-  static Future<void> showDeleteAccountConfirmationDialog(
+  static Future<bool> showDeleteAccountConfirmationDialog(
     BuildContext context,
   ) async {
     final confirmed = await _showConfirmationDialog(
@@ -31,10 +26,7 @@ sealed class Dialogs {
           'It can take up to 30 days. This cannot be undone.',
     );
 
-    if (confirmed && context.mounted) {
-      // TODO: implement delete account
-      // context.showSnackBar('Request submitted.');
-    }
+    return confirmed;
   }
 
   static Future<bool> _showConfirmationDialog(

@@ -33,52 +33,68 @@ class InvestmentResponse {
 }
 
 class InvestmentModel {
-  int balance;
-  int totalInvestmentUsdt;
-  int totalWithdrawUsdt;
-  int profitBalance;
-  int referralTotalAmount;
-  int bonus;
+  dynamic totalInvestmentUsdt;
+  dynamic totalInvestmentBtc;
+  dynamic totalInvestmentEth;
+  dynamic totalWithdrawUsdt;
+  dynamic balanceUsdt;
+  dynamic balanceBtc;
+  dynamic balanceEth;
+  dynamic profitBalance;
+  dynamic bonus;
+  dynamic referralTotalAmount;
   List<LatestTransDatum> latestTransData;
   UserCurrentPlan userCurrentPlan;
 
   InvestmentModel({
-    required this.balance,
     required this.totalInvestmentUsdt,
+    required this.totalInvestmentBtc,
+    required this.totalInvestmentEth,
     required this.totalWithdrawUsdt,
+    required this.balanceUsdt,
+    required this.balanceBtc,
+    required this.balanceEth,
     required this.profitBalance,
-    required this.referralTotalAmount,
     required this.bonus,
+    required this.referralTotalAmount,
     required this.latestTransData,
     required this.userCurrentPlan,
   });
 
   factory InvestmentModel.fromJson(Map<String, dynamic> json) => InvestmentModel(
-    balance: json["balance"],
     totalInvestmentUsdt: json["totalInvestmentUSDT"],
+    totalInvestmentBtc: json["totalInvestmentBTC"],
+    totalInvestmentEth: json["totalInvestmentETH"],
     totalWithdrawUsdt: json["totalWithdrawUSDT"],
+    balanceUsdt: json["balanceUSDT"],
+    balanceBtc: json["balanceBTC"],
+    balanceEth: json["balanceETH"],
     profitBalance: json["profitBalance"],
-    referralTotalAmount: json["referralTotalAmount"],
     bonus: json["bonus"],
+    referralTotalAmount: json["referralTotalAmount"],
     latestTransData: List<LatestTransDatum>.from(json["latestTransData"].map((x) => LatestTransDatum.fromJson(x))),
     userCurrentPlan: UserCurrentPlan.fromJson(json["user_current_plan"]),
   );
 
   Map<String, dynamic> toJson() => {
-    "balance": balance,
     "totalInvestmentUSDT": totalInvestmentUsdt,
+    "totalInvestmentBTC": totalInvestmentBtc,
+    "totalInvestmentETH": totalInvestmentEth,
     "totalWithdrawUSDT": totalWithdrawUsdt,
+    "balanceUSDT": balanceUsdt,
+    "balanceBTC": balanceBtc,
+    "balanceETH": balanceEth,
     "profitBalance": profitBalance,
-    "referralTotalAmount": referralTotalAmount,
     "bonus": bonus,
+    "referralTotalAmount": referralTotalAmount,
     "latestTransData": List<dynamic>.from(latestTransData.map((x) => x.toJson())),
     "user_current_plan": userCurrentPlan.toJson(),
   };
 }
 
 class LatestTransDatum {
-  String amount;
-  String totalAmount;
+  dynamic amount;
+  dynamic totalAmount;
   String currency;
   String status;
   String type;
@@ -111,6 +127,8 @@ class LatestTransDatum {
     "created_at": createdAt,
   };
 }
+
+
 
 class UserCurrentPlan {
   int id;

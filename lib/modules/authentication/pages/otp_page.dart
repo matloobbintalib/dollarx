@@ -1,4 +1,5 @@
 import 'package:dollarx/modules/authentication/pages/reset_password_page.dart';
+import 'package:dollarx/modules/dashboard/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dollarx/config/config.dart';
@@ -20,13 +21,13 @@ import '../../../ui/widgets/custom_appbar.dart';
 import '../../../ui/widgets/on_click.dart';
 import '../../../ui/widgets/primary_button.dart';
 import '../../../ui/widgets/toast_loader.dart';
-import '../cubits/login/login_cubit.dart';
 import 'login_page.dart';
 
 class OtpPage extends StatelessWidget {
+  final bool isFromRegister;
   final String email;
 
-  const OtpPage({super.key, required this.email});
+  const OtpPage({super.key, required this.email, required this.isFromRegister});
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class OtpPage extends StatelessWidget {
       ],
       child: OtpPageView(
         email: email,
+        isFromRegister: isFromRegister,
       ),
     );
   }
@@ -48,8 +50,9 @@ class OtpPage extends StatelessWidget {
 
 class OtpPageView extends StatefulWidget {
   final String email;
+  final bool isFromRegister;
 
-  OtpPageView({Key? key, required this.email}) : super(key: key);
+  OtpPageView({Key? key, required this.email, required this.isFromRegister}) : super(key: key);
 
   @override
   State<OtpPageView> createState() => _OtpPageViewState();
@@ -67,7 +70,11 @@ class _OtpPageViewState extends State<OtpPageView> {
           ToastLoader.show();
         } else if (state.verifyOtpStatus == VerifyOtpStatus.success) {
           ToastLoader.remove();
-          NavRouter.push(context, ResetPasswordPage());
+          if(widget.isFromRegister){
+            NavRouter.pushAndRemoveUntil(context, DashboardPage());
+          }else{
+            NavRouter.push(context, ResetPasswordPage());
+          }
         } else if (state.verifyOtpStatus == VerifyOtpStatus.error) {
           ToastLoader.remove();
           context.showSnackBar(state.message);

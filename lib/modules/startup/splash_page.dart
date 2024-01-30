@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:dollarx/modules/home/pages/home_page.dart';
 
 import '../../config/routes/nav_router.dart';
 import '../../constants/app_colors.dart';

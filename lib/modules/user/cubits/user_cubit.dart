@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
+import '../../../core/di/service_locator.dart';
+import '../../../core/network/dio_client.dart';
 import '../models/user_model.dart';
 import '../repository/user_account_repository.dart';
 
@@ -10,6 +12,7 @@ class UserCubit extends Cubit<UserState> {
   UserCubit({required UserAccountRepository userAccountRepository})
       : _userAccountRepository = userAccountRepository,
         super(UserState.initial());
+  final DioClient _dioClient = sl<DioClient>();
 
   final UserAccountRepository _userAccountRepository;
 
@@ -22,6 +25,8 @@ class UserCubit extends Cubit<UserState> {
     emit(state.copyWith(userStatus: UserStatus.loginOut));
     await Future.delayed(Duration(seconds: 2));
     await _userAccountRepository.logout();
+    await _userAccountRepository.removeUserFromDb();
+    await _dioClient.setToken("");
     emit(state.copyWith(
         userStatus: UserStatus.success, userModel: UserModel.empty));
   }

@@ -20,7 +20,7 @@ class RegisterInput {
   });
 
   Map<String, dynamic> toJson() => {
-        "full_name": name,
+        "name": name,
         "email": email,
         "password": password,
         "parent_id": parent_id,
@@ -30,7 +30,7 @@ class RegisterInput {
       };
 
   FormData toFormData() => FormData.fromMap({
-        "full_name": name,
+        "name": name,
         "email": email,
         "password": password,
         "parent_id": parent_id,

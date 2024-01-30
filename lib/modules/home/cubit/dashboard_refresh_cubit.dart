@@ -1,9 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:dollarx/modules/home/repo/home_repo.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../../../core/exceptions/api_error.dart';
-import '../../authentication/models/auth_response.dart';
 import '../models/dashoboard_data_response.dart';
 import 'dashboard_refresh_state.dart';
 

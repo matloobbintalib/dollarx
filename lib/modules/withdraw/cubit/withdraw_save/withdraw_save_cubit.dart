@@ -1,12 +1,10 @@
 
 
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:dollarx/modules/authentication/models/base_response.dart';
 import 'package:dollarx/modules/withdraw/cubit/withdraw_save/withdraw_save_state.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
 
 import '../../../../../../core/exceptions/api_error.dart';
 import '../../models/withdraw_input.dart';
@@ -24,7 +22,7 @@ class WithdrawSaveCubit extends Cubit<WithdrawSaveState> {
     try {
       BaseResponse baseResponse = await _repository.withdrawSave(withdrawInput);
       if (baseResponse.status == 200) {
-        emit(state.copyWith(withdrawStatus: WithdrawSaveStatus.success));
+        emit(state.copyWith(withdrawStatus: WithdrawSaveStatus.success, message: baseResponse.message));
       } else {
         emit(state.copyWith(
             withdrawStatus: WithdrawSaveStatus.error,

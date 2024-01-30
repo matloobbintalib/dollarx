@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/app_colors.dart';
-import '../../constants/asset_paths.dart';
 
 /// headline large 24 800
 /// headline large 20 800
@@ -19,7 +18,7 @@ final lightTheme = _getTheme();
 
 const _primary = Color(0xFF070707);
 const _light = Color(0xFFFFF1C7);
-const _secondary = Color(0xFFCCA354);
+const _secondary = Color(0xFFb79d62);
 
 const _background = Color(0xFFFFFFFF);
 const _lightest = Colors.white;

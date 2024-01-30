@@ -1,23 +1,28 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dollarx/config/config.dart';
 import 'package:dollarx/modules/deposit/pages/desposit_page.dart';
+import 'package:dollarx/modules/history/pages/bonus_history_page.dart';
+import 'package:dollarx/modules/history/pages/deposit_history_page.dart';
+import 'package:dollarx/modules/history/pages/profit_history_page.dart';
+import 'package:dollarx/modules/history/pages/withdraw_history_page.dart';
 import 'package:dollarx/modules/investment/cubit/investment_cubit.dart';
 import 'package:dollarx/modules/investment/cubit/investment_state.dart';
-import 'package:dollarx/modules/investment/models/recent_transaction_model.dart';
 import 'package:dollarx/modules/investment/widgets/investment_widget.dart';
 import 'package:dollarx/modules/investment/widgets/recent_transaction_widget.dart';
+import 'package:dollarx/modules/investment_plan/pages/investment_plans.dart';
 import 'package:dollarx/modules/withdraw/pages/withdraw_page.dart';
 import 'package:dollarx/ui/widgets/base_scaffold.dart';
 import 'package:dollarx/ui/widgets/custom_appbar.dart';
 import 'package:dollarx/ui/widgets/empty_widget.dart';
 import 'package:dollarx/ui/widgets/loading_indicator.dart';
+import 'package:dollarx/ui/widgets/primary_button.dart';
 import 'package:dollarx/utils/extensions/extended_context.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../constants/app_colors.dart';
 import '../../../core/di/service_locator.dart';
+import '../../referalls/pages/referrals_page.dart';
 import '../models/investment_response.dart';
 
 class InvestmentPage extends StatefulWidget {
@@ -69,7 +74,7 @@ class _InvestmentPageState extends State<InvestmentPage>
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(16),
                               bottomRight: Radius.circular(16)),
-                          color: AppColors.onSecondary),
+                          color: AppColors.secondary),
                       child: Column(
                         children: [
                           Stack(
@@ -79,21 +84,24 @@ class _InvestmentPageState extends State<InvestmentPage>
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 6, vertical: 10),
                                 decoration: BoxDecoration(
-                                    color: AppColors.darkYellow,
+                                    color: AppColors.secondary,
                                     border:
-                                        Border.all(color: AppColors.secondary),
+                                        Border.all(color: AppColors.white),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(8))),
                                 child: Row(
                                   children: [
                                     Expanded(
-                                        child: Text(state.investmentModel!.userCurrentPlan.name,
+                                        child: Text(
+                                            "Rank ${state.investmentModel!.userCurrentPlan.id}",
                                             style: context.textTheme.titleMedium
                                                 ?.copyWith(
                                                     color: AppColors.white))),
                                     Expanded(
                                         child: Text(
-                                      "Neptune",
+                                      state
+                                          .investmentModel!.userCurrentPlan.name
+                                          .toString(),
                                       style: context.textTheme.titleMedium
                                           ?.copyWith(color: AppColors.white),
                                       textAlign: TextAlign.right,
@@ -101,30 +109,30 @@ class _InvestmentPageState extends State<InvestmentPage>
                                   ],
                                 ),
                               ),
-                              CircleAvatar(
-                                child: CachedNetworkImage(
-                                  imageUrl:
-                                  "https://dollarax.com/"+ state.investmentModel!.userCurrentPlan.imgUrl,
-                                  placeholder: (context, url) =>
-                                  new CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) => ClipRRect(
-                                      borderRadius:
-                                      BorderRadius.all(Radius.circular(30)),
-                                      child: Image.asset(
-                                        'assets/images/png/placeholder.jpg',width: 60,
-                                        height: 60,)),
-                                ),
-                                backgroundColor: Colors.white,
-                                radius: 30,
-                                backgroundImage: AssetImage(
-                                    'assets/images/png/placeholder.jpg'),
+                              CachedNetworkImage(
+                                imageUrl: "https://dollarax.com/" +
+                                    state.investmentModel!.userCurrentPlan
+                                        .imgUrl,
+                                placeholder: (context, url) =>
+                                    new CircularProgressIndicator(),
+                                errorWidget: (context, url, error) => ClipRRect(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(30)),
+                                    child: Image.asset(
+                                      'assets/images/png/placeholder.jpg',
+                                      width: 60,
+                                      height: 60,
+                                    )),
+                                width: 60,
+                                height: 60,
                               ),
                             ],
                           ),
                           SizedBox(
-                            height: 6,
+                            height: 8,
                           ),
-                          Text("\$${state.investmentModel!.balance}",
+                          Text(
+                              "\$${state.investmentModel!.totalInvestmentUsdt}",
                               style: context.textTheme.headlineMedium
                                   ?.copyWith(fontWeight: FontWeight.w600)),
                           Text("Available Balance",
@@ -141,34 +149,63 @@ class _InvestmentPageState extends State<InvestmentPage>
                       child: Column(
                         children: [
                           InvestmentWidget(
-                              iconPath:
-                                  "assets/images/png/ic_investment_yellow.png",
-                              title: "Investment",
-                              price:
-                                  "\$${state.investmentModel!.totalInvestmentUsdt}"),
+                            iconPath:
+                                "assets/images/png/ic_investment_yellow.png",
+                            title: "Investment",
+                            price:
+                                "\$${state.investmentModel!.totalInvestmentUsdt}",
+                            onTap: () {
+                              NavRouter.push(context, DepositHistoryPage());
+                            },
+                          ),
                           InvestmentWidget(
-                              iconPath:
-                                  "assets/images/png/ic_profit_yellow.png",
-                              title: "Profit",
-                              price:
-                                  "\$${state.investmentModel!.profitBalance}"),
+                            iconPath: "assets/images/png/ic_profit_yellow.png",
+                            title: "Profit",
+                            price: "\$${state.investmentModel!.profitBalance}",
+                            onTap: () {
+                              NavRouter.push(context, ProfitHistoryPage());
+                            },
+                          ),
                           InvestmentWidget(
-                              iconPath:
-                                  "assets/images/png/ic_referrals_investment.png",
-                              title: "Referral Investment",
-                              price:
-                                  "\$${state.investmentModel!.referralTotalAmount}"),
+                            iconPath:
+                                "assets/images/png/ic_referrals_investment.png",
+                            title: "Referral Investment",
+                            price:
+                                "\$${state.investmentModel!.referralTotalAmount}",
+                            onTap: () {
+                              NavRouter.push(context, ReferralsPage(isFromDashboard: false,),);
+                            },
+                          ),
                           InvestmentWidget(
-                              iconPath:
-                                  "assets/images/png/ic_referrals_bonus.png",
-                              title: "Referral Bonus",
-                              price: "\$${state.investmentModel!.bonus}"),
+                            iconPath:
+                                "assets/images/png/ic_referrals_bonus.png",
+                            title: "Referral Bonus",
+                            price: "\$${state.investmentModel!.bonus}",
+                            onTap: () {
+                              NavRouter.push(context, BonusHistoryPage());
+                            },
+                          ),
                           InvestmentWidget(
-                              iconPath:
-                                  "assets/images/png/ic_withdraw_yellow.png",
-                              title: "Withdrawals",
-                              price:
-                                  "\$${state.investmentModel!.totalWithdrawUsdt}"),
+                            iconPath:
+                                "assets/images/png/ic_withdraw_yellow.png",
+                            title: "Withdrawals",
+                            price:
+                                "\$${state.investmentModel!.totalWithdrawUsdt.toString()}",
+                            onTap: () {
+                              NavRouter.push(context, WithdrawHistoryPage());
+                            },
+                          ),
+                          SizedBox(
+                            height: 16,
+                          ),
+                          PrimaryButton(
+                            onPressed: () {
+                              NavRouter.push(context, InvestmentPlansPage());
+                            },
+                            title: 'Investment Plan',
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                          ),
                           SizedBox(
                             height: 16,
                           ),
@@ -262,10 +299,26 @@ class _InvestmentPageState extends State<InvestmentPage>
                                 (index) {
                               LatestTransDatum model =
                                   state.investmentModel!.latestTransData[index];
+                              String iconPath =
+                                  "assets/images/png/ic_profit_yellow.png";
+                              if (model.type.toLowerCase() == "profit") {
+                                iconPath =
+                                    "assets/images/png/ic_profit_yellow.png";
+                              } else if (model.type.toLowerCase() ==
+                                  "deposit") {
+                                iconPath =
+                                    "assets/images/png/ic_available_balance.png";
+                              } else if (model.type.toLowerCase() ==
+                                  "withdraw") {
+                                iconPath =
+                                    "assets/images/png/ic_withdraw_yellow.png";
+                              } else if (model.type.toLowerCase() == "bonus") {
+                                iconPath =
+                                    "assets/images/png/ic_referrals_bonus.png";
+                              }
                               return RecentTransactionWidget(
                                 latestTransDatum: model,
-                                iconPath:
-                                    "assets/images/png/ic_profit_yellow.png",
+                                iconPath: iconPath,
                               );
                             }),
                           ),
@@ -280,7 +333,10 @@ class _InvestmentPageState extends State<InvestmentPage>
               }
               if (state.investmentStatus == InvestmentStatus.error) {
                 return Center(
-                  child: Text(state.message),
+                  child: Text(
+                    state.message,
+                    style: TextStyle(color: Colors.white),
+                  ),
                 );
               }
               return EmptyWidget();

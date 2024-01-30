@@ -48,6 +48,12 @@ dependencies:
   flutter_image_compress: ^2.0.4
   curved_navigation_bar: ^1.0.3
   carousel_slider: ^4.2.1
+  intl: ^0.17.0
+  webview_flutter: ^2.0.14
+  flutter_html: ^3.0.0-beta.2
+  html: ^0.15.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_app_badger: ^1.5.0
 
 
   # notifications
@@ -64,6 +70,11 @@ dev_dependencies:
     sdk: flutter
 
 
+flutter_launcher_icons:
+  image_path: 'assets/images/png/app_logo.png'
+  android: false
+  ios: true
+  remove_alpha_ios: true
 
 # The following section is specific to Flutter packages.
 flutter:

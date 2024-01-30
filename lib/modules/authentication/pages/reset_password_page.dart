@@ -15,7 +15,6 @@ import '../../../ui/input/input_field.dart';
 import '../../../ui/widgets/custom_appbar.dart';
 import '../../../ui/widgets/primary_button.dart';
 import '../../../ui/widgets/toast_loader.dart';
-import '../cubits/login/login_cubit.dart';
 import 'login_page.dart';
 
 class ResetPasswordPage extends StatelessWidget {

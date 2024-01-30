@@ -37,9 +37,9 @@ class DepositDataResponse {
 }
 
 class DepositModel {
-  int usdtDepositsBalance;
-  int btcDepositsBalance;
-  int ethDepositsBalance;
+  dynamic usdtDepositsBalance;
+  dynamic btcDepositsBalance;
+  dynamic ethDepositsBalance;
   List<InvestmentCurrency> investmentCurrencies;
 
   DepositModel({

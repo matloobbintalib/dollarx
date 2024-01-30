@@ -28,7 +28,7 @@ class DepositWidget extends StatelessWidget {
               Expanded(
                 child:Row(
                   children: [
-                    Image.asset(iconPath, width: 34,height: 34,),
+                    Image.asset(iconPath, width: 34,height: 34,color: AppColors.secondary,),
                     SizedBox(width: 8,),
                     Text(title,
                       style: context.textTheme.bodySmall?.copyWith(fontSize: 11),),

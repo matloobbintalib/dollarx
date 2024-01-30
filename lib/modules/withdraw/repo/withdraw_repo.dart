@@ -4,8 +4,6 @@
 
 import 'package:dio/dio.dart';
 import 'package:dollarx/modules/authentication/models/base_response.dart';
-import 'package:dollarx/modules/deposit/models/deposit_data_response.dart';
-import 'package:dollarx/modules/deposit/models/deposit_input.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../constants/api_endpoints.dart';

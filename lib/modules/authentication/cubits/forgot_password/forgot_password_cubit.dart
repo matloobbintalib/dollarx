@@ -1,12 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
-import 'package:dollarx/modules/authentication/cubits/reset_password/reset_password_state.dart';
 
 import '../../../../core/exceptions/api_error.dart';
-import '../../models/auth_response.dart';
 import '../../models/base_response.dart';
 import '../../models/forgot_password_input.dart';
-import '../../models/reset_password_input.dart';
 import '../../repositories/auth_repository.dart';
 import 'forgot_password_state.dart';
 

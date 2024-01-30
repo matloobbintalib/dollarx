@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:dollarx/utils/extensions/extended_context.dart';
 
 import '../../constants/app_colors.dart';
@@ -102,7 +101,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
               ),
               contentPadding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding,vertical: widget.verticalPadding)
             ),
-            dropdownColor: const Color(0xffF4F4F4),
+            dropdownColor: AppColors.secondary,
             value: dropdownValue,
             borderRadius: BorderRadius.all(Radius.circular(6)),
             onChanged: (String? newValue) {
@@ -122,7 +121,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
                   value,
                   style: TextStyle(
                     fontSize: widget.fontSize,
-                    color: Colors.black,
+                    color: Colors.white,
                   ),
                 ),
               );

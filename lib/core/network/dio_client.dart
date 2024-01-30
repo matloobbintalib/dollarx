@@ -8,7 +8,7 @@ class DioClient extends DioForNative {
 
   String? _authToken;
 
-  void setToken(String token) {
+  Future<void> setToken(String token) async{
     this._authToken = token;
   }
 

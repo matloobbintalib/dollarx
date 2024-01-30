@@ -36,6 +36,24 @@ class DepositRepository{
     }
   }
 
+  Future<BaseResponse> depositSold(int deposit_id) async {
+    try {
+      var response =
+      await _service.post(Endpoints.depositSold, data: FormData.fromMap({
+        'deposit_id': deposit_id
+      }));
+      BaseResponse baseResponse = await compute(baseResponseFromJson, response.data);
+      print('Response --- $response');
+      return baseResponse;
+    } on DioException catch (e, stackTrace) {
+      _log.e(e, stackTrace: stackTrace);
+      throw ApiError.fromDioException(e);
+    } catch (e) {
+      _log.e(e);
+      throw ApiError(message: '$e', code: 0);
+    }
+  }
+
   Future<DepositDataResponse> depositData() async {
     try {
       var response =

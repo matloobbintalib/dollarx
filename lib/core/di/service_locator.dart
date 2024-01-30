@@ -1,13 +1,18 @@
 import 'package:dollarx/modules/authentication/repositories/auth_repository.dart';
 import 'package:dollarx/modules/authentication/repositories/session_repository.dart';
 import 'package:dollarx/modules/deposit/repo/deposit_repository.dart';
+import 'package:dollarx/modules/history/repo/history_repo.dart';
 import 'package:dollarx/modules/home/repo/home_repo.dart';
 import 'package:dollarx/modules/investment/repo/investment_repo.dart';
+import 'package:dollarx/modules/referalls/repo/referral_repository.dart';
 import 'package:dollarx/modules/user/repository/user_account_repository.dart';
 import 'package:dollarx/modules/withdraw/repo/withdraw_repo.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../config/environment.dart';
+import '../../modules/investment_plan/repo/investment_plan_repo.dart';
+import '../../modules/profile/repo/profile_repository.dart';
+import '../../modules/webpage/repo/content_page_repository.dart';
 import '../network/dio_client.dart';
 import '../notifications/cloud_messaging_api.dart';
 import '../notifications/local_notification_api.dart';
@@ -69,23 +74,38 @@ void setupLocator(Environment environment) async {
       sessionRepository: sl(),
     ),
   );
-sl.registerLazySingleton<DepositRepository>(
+  sl.registerLazySingleton<DepositRepository>(
     () => DepositRepository(),
   );
 
-
   sl.registerLazySingleton<HomeRepoRepository>(
-        () => HomeRepoRepository(),
+    () => HomeRepoRepository(),
   );
 
- sl.registerLazySingleton<WithdrawRepository>(
-        () => WithdrawRepository(),
+  sl.registerLazySingleton<WithdrawRepository>(
+    () => WithdrawRepository(),
   );
 
   sl.registerLazySingleton<InvestmentRepository>(
-        () => InvestmentRepository(),
+    () => InvestmentRepository(),
   );
 
+  sl.registerLazySingleton<InvestmentPlanRepository>(
+    () => InvestmentPlanRepository(),
+  );
+  sl.registerLazySingleton<HistoryRepository>(
+    () => HistoryRepository(),
+  );
+
+  sl.registerLazySingleton<ReferralRepository>(
+    () => ReferralRepository(),
+  );
+  sl.registerLazySingleton<ProfileRepository>(
+    () => ProfileRepository(dioClient: sl()),
+  );
+sl.registerLazySingleton<ContentPageRepository>(
+    () => ContentPageRepository(dioClient: sl()),
+  );
 
   /// ********************************************************************************************
 }

@@ -1,7 +1,6 @@
 import 'package:dollarx/ui/widgets/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:dollarx/constants/app_colors.dart';
 import 'package:dollarx/utils/utils.dart';
 

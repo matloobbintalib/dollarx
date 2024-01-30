@@ -1,5 +1,6 @@
 import 'package:dollarx/modules/home/pages/home_page.dart';
 import 'package:dollarx/modules/investment/pages/investment_page.dart';
+import 'package:dollarx/modules/profile/pages/profile_page.dart';
 import 'package:dollarx/modules/referalls/pages/referrals_page.dart';
 import 'package:dollarx/ui/widgets/empty_page.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +26,11 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget _getCurrentPage(int index) {
     final page = switch (index) {
       0 => InvestmentPage(),
-      1 => ReferralsPage(),
-      2 => EmptyPage(title: "Trade"),
+      1 => ReferralsPage(isFromDashboard: true,),
+      2 => EmptyPage(title: "Coming soon..."),
       3 => HomePage(),
-      4 => EmptyPage(title: "Wallet"),
-      _ => EmptyPage(title: 'Profile'),
+      4 => EmptyPage(title: "Coming soon..."),
+      _ => ProfilePage(isFromDashboard: true,),
     };
     return page;
   }

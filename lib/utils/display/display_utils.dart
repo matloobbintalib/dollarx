@@ -15,6 +15,7 @@ class DisplayUtils {
       );
   }
 
+
   static void showToast(BuildContext context, String title) {
     Fluttertoast.showToast(
         msg: title,

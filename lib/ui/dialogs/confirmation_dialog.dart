@@ -16,8 +16,12 @@ class ConfirmationDialog extends StatelessWidget {
     return AlertDialog.adaptive(
       backgroundColor: context.colorScheme.background,
       surfaceTintColor: context.colorScheme.background,
-      title: Text(title),
-      content: Text(message),
+      title: Text(title,style: TextStyle(
+        color: Colors.black
+      ), ),
+      content: Text(message,style: TextStyle(
+          color: Colors.black
+      )),
       actions: [
         TextButton(
           onPressed: () {

@@ -51,7 +51,7 @@ class _ForgotPasswordPagePageViewState extends State<ForgotPasswordPagePageView>
         } else if (state.forgotPasswordStatus == ForgotPasswordStatus.success) {
           ToastLoader.remove();
           DisplayUtils.showToast(context, state.message);
-          NavRouter.push(context, OtpPage(email: emailController.text.trim(),));
+          NavRouter.push(context, OtpPage(email: emailController.text.trim(), isFromRegister: false,));
         } else if (state.forgotPasswordStatus == ForgotPasswordStatus.error) {
           ToastLoader.remove();
           context.showSnackBar(state.message);

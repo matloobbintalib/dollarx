@@ -4,8 +4,8 @@ class AppColors {
   static const primaryRed = Color(0xffE30613);
   static const primaryGreen = Color(0xff008D36);
   static const primaryLighter = Color(0xff3E4292);
-  static const secondary = Color(0xFFCCA354);
-  static const onSecondary = Color(0xFF574728);
+  static const secondary = Color(0xFFb79d62);
+  static const onSecondary = Color(0xFF574628);
 
   static const grey = Color(0xFF939393);
   static const grey1 = Color(0xFFB9B9B9);

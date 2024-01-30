@@ -3,15 +3,22 @@ class UserModel {
   String name;
   String referralId;
   String email;
-  dynamic parentId;
+  String? parentId;
   String planId;
   String mobile;
-  dynamic address;
+  String? address;
   String status;
-  dynamic btcAddress;
-  dynamic ethAddress;
-  dynamic usdtAddress;
-  String profilePic;
+  String? btcAddress;
+  String? ethAddress;
+  String? usdtAddress;
+  String? profilePic;
+  String? city;
+  dynamic bankName;
+  dynamic bankAccountName;
+  dynamic bankIbanNo;
+  dynamic kycDocType;
+  dynamic selfiPic;
+  dynamic kycDocument;
 
   static UserModel empty = UserModel(
       id: -1,
@@ -26,7 +33,8 @@ class UserModel {
       btcAddress: '',
       ethAddress: '',
       usdtAddress: '',
-      profilePic: '');
+      profilePic: '', city: '', bankName: '', bankAccountName: '', bankIbanNo: '', kycDocType: null, selfiPic: null, kycDocument: null,
+  );
 
   UserModel({
     required this.id,
@@ -42,6 +50,13 @@ class UserModel {
     required this.ethAddress,
     required this.usdtAddress,
     required this.profilePic,
+    required this.city,
+    required this.bankName,
+    required this.bankAccountName,
+    required this.bankIbanNo,
+    required this.kycDocType,
+    required this.selfiPic,
+    required this.kycDocument,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
@@ -58,6 +73,13 @@ class UserModel {
     ethAddress: json["eth_address"],
     usdtAddress: json["usdt_address"],
     profilePic: json["profile_pic"],
+    city: json["city"],
+    bankName: json["bank_name"],
+    bankAccountName: json["bank_account_name"],
+    bankIbanNo: json["bank_iban_no"],
+    kycDocType: json["kyc_doc_type"],
+    selfiPic: json["selfi_pic"],
+    kycDocument: json["kyc_document"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -74,6 +96,13 @@ class UserModel {
     "eth_address": ethAddress,
     "usdt_address": usdtAddress,
     "profile_pic": profilePic,
+    "city": city,
+    "bank_name": bankName,
+    "bank_account_name": bankAccountName,
+    "bank_iban_no": bankIbanNo,
+    "kyc_doc_type": kycDocType,
+    "selfi_pic": selfiPic,
+    "kyc_document": kycDocument,
   };
 
 

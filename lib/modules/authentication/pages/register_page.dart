@@ -1,3 +1,4 @@
+import 'package:dollarx/modules/authentication/pages/otp_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dollarx/config/config.dart';
@@ -6,7 +7,6 @@ import 'package:dollarx/modules/authentication/cubits/register/register_cubit.da
 import 'package:dollarx/modules/authentication/models/register_input.dart';
 import 'package:dollarx/modules/authentication/pages/login_page.dart';
 import 'package:dollarx/modules/authentication/widgets/password_suffix_widget.dart';
-import 'package:dollarx/modules/home/pages/home_page.dart';
 import 'package:dollarx/ui/widgets/base_scaffold.dart';
 import 'package:dollarx/ui/widgets/on_click.dart';
 import 'package:dollarx/utils/utils.dart';
@@ -15,8 +15,6 @@ import '../../../ui/input/input_field.dart';
 import '../../../ui/widgets/custom_appbar.dart';
 import '../../../ui/widgets/primary_button.dart';
 import '../../../ui/widgets/toast_loader.dart';
-import '../../dashboard/pages/dashboard_page.dart';
-import '../cubits/login/login_cubit.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({super.key});
@@ -56,7 +54,7 @@ class _RegisterPageViewState extends State<RegisterPageView> {
           ToastLoader.show();
         } else if (state.registerStatus == RegisterStatus.success) {
           ToastLoader.remove();
-          NavRouter.push(context, DashboardPage());
+          NavRouter.push(context, OtpPage(email: emailController.text.trim(), isFromRegister: true,));
         } else if (state.registerStatus == RegisterStatus.error) {
           ToastLoader.remove();
           context.showSnackBar(state.message);
@@ -68,9 +66,12 @@ class _RegisterPageViewState extends State<RegisterPageView> {
           appBar: CustomAppbar(
             title: 'Register',
           ),
-          body: SingleChildScrollView(
-            child: Form(
-              key: formKey,
+          body: Form(
+            key: formKey,
+            autovalidateMode: state.isAutoValidate
+                ? AutovalidateMode.always
+                : AutovalidateMode.disabled,
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   SizedBox(
@@ -152,6 +153,24 @@ class _RegisterPageViewState extends State<RegisterPageView> {
                   InputField.phone(
                     controller: mobileController,
                     label: "Type Your Mobile Number",
+                  ),
+                  Align(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Text(
+                        "Referral ID",
+                        style: context.textTheme.bodyMedium,
+                        textAlign: TextAlign.start,
+                      ),
+                    ),
+                    alignment: Alignment.centerLeft,
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  InputField.name(
+                    controller: parentIdController,
+                    label: "Type Your Referral",
                   ),
                   SizedBox(
                     height: 24,

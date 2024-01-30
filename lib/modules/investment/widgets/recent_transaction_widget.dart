@@ -4,9 +4,9 @@ import 'package:dollarx/constants/app_colors.dart';
 import 'package:dollarx/utils/extensions/extended_context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../models/investment_response.dart';
-import '../models/recent_transaction_model.dart';
 
 class RecentTransactionWidget extends StatelessWidget {
   final LatestTransDatum latestTransDatum;
@@ -49,7 +49,7 @@ class RecentTransactionWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              Image.asset(iconPath, width: 36,height: 36,),
+              Image.asset(iconPath, width: 36,height: 36,color: AppColors.secondary,),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -66,5 +66,11 @@ class RecentTransactionWidget extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String changeDateFormat(String inputDate) {
+    DateTime dateTime = DateTime.parse(inputDate);
+    String formattedDate = DateFormat('dd-MM-yyyy').format(dateTime);
+    return formattedDate;
   }
 }

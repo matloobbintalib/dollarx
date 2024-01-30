@@ -4,7 +4,153 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1211b3d9-0ac7-4be0-988f-b04f3fafa697" name="Changes" comment="" />
+    <list default="true" id="1211b3d9-0ac7-4be0-988f-b04f3fafa697" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/assets/images/png/app_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/currency_icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/history.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/ic_arrow_forward.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/ic_delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/ic_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/ic_language.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/ic_privacy_policy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/ic_term_conditions.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/ic_upload_image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/kyc_verification.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/logout.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/settings.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/slider_placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/png/support.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/authentication/cubits/logout/logout_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/authentication/cubits/logout/logout_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/deposit/cubit/deposit_sold/deposit_sold_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/deposit/cubit/deposit_sold/deposit_sold_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/bonus/bonus_history_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/bonus/bonus_history_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/deposit/deposit_history_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/deposit/deposit_history_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/profit/profit_history_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/profit/profit_history_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/withdraw/withdraw_history_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/cubit/withdraw/withdraw_history_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/models/bonus_history_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/models/deposit_history_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/models/profit_history_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/models/withdraw_history_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/pages/bonus_history_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/pages/deposit_history_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/pages/history_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/pages/history_page_tets.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/pages/profit_history_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/pages/withdraw_history_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/repo/history_repo.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/widget/bonus_history_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/widget/deposit_history_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/widget/history_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/widget/profit_history_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/history/widget/withdraw_history_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/investment_plan/cubit/investment_plan_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/investment_plan/cubit/investment_plan_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/investment_plan/models/investment_plan_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/investment_plan/repo/investment_plan_repo.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/investment_plan/widgets/investment_plan_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/kyc_verification/pages/kyc_verification_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/profile/cubit/update_profile/update_profile_cubut.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/profile/cubit/update_profile/update_profile_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/profile/models/update_profile_input.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/profile/pages/profile_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/profile/pages/update_profile_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/profile/repo/profile_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/profile/widgets/profile_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/referalls/cubit/referral_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/referalls/cubit/referral_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/referalls/models/referral_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/referalls/repo/referral_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/webpage/cubit/content_page_cubit.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/webpage/cubit/content_page_state.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/webpage/models/content_page_response.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/webpage/pages/html_content_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/webpage/pages/webview_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/modules/webpage/repo/content_page_repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/dialogs/dialog_utils.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/dialogs/widgets/confirmation_dialog_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/dialogs/widgets/upload_picture_dialog_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/widgets/circular_cached_image.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ui/widgets/profile_picture_widget.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/custom_date_time_picker.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/images/png/app_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/png/app_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/config/themes/light_theme.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/config/themes/light_theme.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/constants/api_endpoints.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/api_endpoints.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/constants/app_colors.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/constants/app_colors.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/di/service_locator.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/di/service_locator.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/core/network/dio_client.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/core/network/dio_client.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/cubits/forgot_password/forgot_password_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/cubits/forgot_password/forgot_password_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/cubits/reset_password/reset_password_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/cubits/reset_password/reset_password_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/cubits/verify_otp/verify_otp_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/cubits/verify_otp/verify_otp_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/models/auth_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/models/auth_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/models/register_input.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/models/register_input.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/pages/forgot_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/pages/forgot_password_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/pages/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/pages/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/pages/otp_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/pages/otp_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/pages/register_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/pages/register_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/pages/reset_password_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/pages/reset_password_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/authentication/repositories/auth_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/authentication/repositories/auth_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/dashboard/pages/dashboard_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/dashboard/pages/dashboard_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/dashboard/widgets/bottom_nav_icon.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/dashboard/widgets/bottom_nav_icon.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/dashboard/widgets/navbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/dashboard/widgets/navbar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/deposit/cubit/deposit_data/deposit_data_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/deposit/cubit/deposit_data/deposit_data_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/deposit/cubit/deposit_save/deposit_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/deposit/cubit/deposit_save/deposit_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/deposit/models/deposit_data_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/deposit/models/deposit_data_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/deposit/pages/desposit_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/deposit/pages/desposit_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/deposit/repo/deposit_repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/deposit/repo/deposit_repository.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/deposit/widgets/deposit_currency_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/deposit/widgets/deposit_currency_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/deposit/widgets/deposit_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/deposit/widgets/deposit_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/home/cubit/dashboard_refresh_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/home/cubit/dashboard_refresh_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/home/cubit/dashboard_refresh_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/home/cubit/dashboard_refresh_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/home/models/dashoboard_data_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/home/models/dashoboard_data_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/home/pages/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/home/pages/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/home/repo/home_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/home/repo/home_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/investment/cubit/investment_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/investment/cubit/investment_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/investment/cubit/investment_state.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/investment/cubit/investment_state.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/investment/models/investment_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/investment/models/investment_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/investment/pages/investment_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/investment/pages/investment_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/investment/repo/investment_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/investment/repo/investment_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/investment/widgets/investment_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/investment/widgets/investment_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/investment/widgets/recent_transaction_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/investment/widgets/recent_transaction_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/referalls/pages/referrals_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/referalls/pages/referrals_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/referalls/widgets/referral_id_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/referalls/widgets/referral_id_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/referalls/widgets/referral_list_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/referalls/widgets/referral_list_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/startup/splash_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/startup/splash_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/user/cubits/user_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/user/cubits/user_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/user/models/user_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/user/models/user_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/withdraw/cubit/withdraw_data/withdraw_data_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/withdraw/cubit/withdraw_data/withdraw_data_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/withdraw/cubit/withdraw_save/withdraw_save_cubit.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/withdraw/cubit/withdraw_save/withdraw_save_cubit.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/withdraw/models/withdraw_data_response.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/withdraw/models/withdraw_data_response.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/withdraw/pages/withdraw_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/withdraw/pages/withdraw_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/modules/withdraw/repo/withdraw_repo.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/modules/withdraw/repo/withdraw_repo.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/dialogs/confirmation_dialog.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/dialogs/confirmation_dialog.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/dialogs/dialogs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/dialogs/dialogs.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/input/input_field.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/input/input_field.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/widgets/custom_appbar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/widgets/custom_appbar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/widgets/custom_dropdown.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/widgets/custom_dropdown.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/widgets/empty_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/widgets/empty_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ui/widgets/primary_button.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ui/widgets/primary_button.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/display/display_utils.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/display/display_utils.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +181,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2aLNzrGXmPyHnQwUHSYado5gVit" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,26 +195,27 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;io.flutter.reload.alreadyRun&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Matloob/Personal-projects/DollarX/assets/images/png&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Matloob/Personal-projects/DollarX&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;emulator&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\profile" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\profile\cubit" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\utils" />
       <recent name="E:\Matloob\Personal-projects\DollarX\assets\images\png" />
-      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\deposit\widgets" />
-      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\referalls\widgets" />
-      <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\dashboard\widgets" />
-      <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\dashboard\cubit" />
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\ui\dialogs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\history\cubit\deposit" />
       <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\withdraw\cubit\withdraw_data" />
       <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\deposit\cubit\deposit_save" />
       <recent name="E:\Matloob\Personal-projects\DollarX\lib\modules\deposit" />
       <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\authentication\cubits\register" />
-      <recent name="E:\Matloob\Personal-projects\DollarX\lib\module\authentication\cubits\login" />
     </key>
   </component>
   <component name="RunManager">
@@ -269,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704808095168</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="initial commit">
+      <option name="closed" value="true" />
+      <created>1705640037618</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1705640037618</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -304,7 +460,8 @@
     <MESSAGE value="search page (widget,api,cubit,state)" />
     <MESSAGE value="pressing dialog confirm callback" />
     <MESSAGE value="add callback on search page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add callback on search page" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

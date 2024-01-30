@@ -3,12 +3,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dollarx/ui/widgets/on_click.dart';
 import 'package:dollarx/utils/extensions/extended_context.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter/services.dart';
 
 import '../../../constants/app_colors.dart';
-import '../../../ui/widgets/custom_dropdown.dart';
 import '../models/deposit_data_response.dart';
 
 class DepositCurrencyWidget extends StatefulWidget {
@@ -86,23 +84,20 @@ class _DepositCurrencyWidgetState extends State<DepositCurrencyWidget> {
                         children: [
                           Row(
                             children: [
-                              CircleAvatar(
+                              ClipRRect(
+                                borderRadius:
+                                BorderRadius.all(Radius.circular(30)),
                                 child: CachedNetworkImage(
-                                  imageUrl:
-                                  'https://dollarax.com/${widget.investmentCurrency.image}',
+                                  imageUrl:'https://dollarax.com/customer_assets/images/btc.svg'
+                                  /*'https://dollarax.com/${widget.investmentCurrency.image}'*/,
                                   placeholder: (context, url) =>
                                   new CircularProgressIndicator(),
-                                  errorWidget: (context, url, error) => ClipRRect(
-                                      borderRadius:
-                                      BorderRadius.all(Radius.circular(30)),
-                                      child: Image.asset(
-                                        'assets/images/png/placeholder.jpg',width: 18,
-                                        height: 18,)),
+                                  errorWidget: (context, url, error) => Image.asset(
+                                    'assets/images/png/placeholder.jpg',width: 18,
+                                    height: 18,),
+                                  width: 18,
+                                  height: 18,
                                 ),
-                                backgroundColor: Colors.white,
-                                radius: 10,
-                                backgroundImage: AssetImage(
-                                    'assets/images/png/placeholder.jpg'),
                               ),
                               SizedBox(
                                 width: 8,
@@ -137,6 +132,10 @@ class _DepositCurrencyWidgetState extends State<DepositCurrencyWidget> {
                               if (widget.onSelect != null) {
                                 widget.onSelect!(widget.investmentCurrency.adminAddress);
                               }
+                              Clipboard.setData( ClipboardData(text: widget.investmentCurrency.adminAddress)).then((_) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(content: Text('Copied to your clipboard!')));
+                              });
                             },
                             child: Container(
                               padding: EdgeInsets.symmetric(
@@ -177,11 +176,17 @@ class _DepositCurrencyWidgetState extends State<DepositCurrencyWidget> {
                   SizedBox(
                     width: 10,
                   ),
-                  Image.asset(
-                    "assets/images/png/ustd_barcode.png",
+                  CachedNetworkImage(
+                    imageUrl:
+                    'https://dollarax.com/newfront_assets/images/${widget.investmentCurrency.name}.png',
+                    placeholder: (context, url) =>
+                    new CircularProgressIndicator(color: Colors.white,),
+                    errorWidget: (context, url, error) => Image.asset(
+                      'assets/images/png/placeholder.jpg',width: 100,
+                      height: 100,),
                     width: 100,
                     height: 100,
-                  )
+                  ),
                 ],
               ),
             ),

@@ -1,4 +1,3 @@
-
 import 'package:dollarx/modules/investment/models/investment_response.dart';
 
 enum InvestmentStatus {
@@ -9,18 +8,21 @@ enum InvestmentStatus {
 }
 
 class InvestmentState {
-
   final InvestmentStatus investmentStatus;
   final InvestmentModel? investmentModel;
   final String message;
 
-  InvestmentState( {required this.investmentStatus,required this.investmentModel,required this.message});
+  InvestmentState(
+      {required this.investmentStatus,
+      required this.investmentModel,
+      required this.message});
 
-  factory InvestmentState.Initial(){
-    return InvestmentState(investmentStatus: InvestmentStatus.initial, investmentModel : null, message: "");
+  factory InvestmentState.Initial() {
+    return InvestmentState(
+        investmentStatus: InvestmentStatus.initial,
+        investmentModel: null,
+        message: "");
   }
-
-
 
   InvestmentState copyWith({
     InvestmentStatus? investmentStatus,

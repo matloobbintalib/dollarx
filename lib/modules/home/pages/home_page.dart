@@ -1,17 +1,15 @@
 import 'package:dollarx/config/config.dart';
 import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/modules/authentication/pages/register_page.dart';
 import 'package:dollarx/modules/home/cubit/dashboard_refresh_cubit.dart';
 import 'package:dollarx/modules/home/cubit/dashboard_refresh_state.dart';
 import 'package:dollarx/modules/home/widgets/gainer_loaser_widget.dart';
+import 'package:dollarx/modules/profile/pages/profile_page.dart';
 import 'package:dollarx/ui/widgets/base_scaffold.dart';
 import 'package:dollarx/ui/widgets/empty_widget.dart';
 import 'package:dollarx/ui/widgets/loading_indicator.dart';
 import 'package:dollarx/ui/widgets/on_click.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dollarx/utils/display/display_utils.dart';
 import 'package:flutter/material.dart';
-import 'package:dollarx/ui/input/input_field.dart';
 import 'package:dollarx/utils/extensions/extended_context.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +39,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarColor: AppColors.chocolateColor,
+      statusBarColor: AppColors.secondary,
       statusBarIconBrightness: Brightness.light, // For Android (dark icons)
       statusBarBrightness: Brightness.light,
     ));
@@ -68,7 +66,7 @@ class _HomePageState extends State<HomePage>
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(20),
                               bottomRight: Radius.circular(20)),
-                          color: AppColors.chocolateColor),
+                          color: AppColors.secondary),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -77,25 +75,38 @@ class _HomePageState extends State<HomePage>
                           ),
                           Row(
                             children: [
-                              CircleAvatar(
+                              OnClick(
+                                onTap: () {
+                                  NavRouter.push(context, ProfilePage(isFromDashboard: false,));
+                                },
                                 child: CachedNetworkImage(
                                   imageUrl:
-                                      'https://dollarax.com/${state.dashboardModel!.user.profilePic}',
+                                      state.dashboardModel!.user.profilePic.toString(),
                                   placeholder: (context, url) =>
-                                      new CircularProgressIndicator(),
+                                      SizedBox(
+                                        height: 70,
+                                        width: 70,
+                                        child: Stack(
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/png/slider_placeholder.png',width: double.infinity,
+                                              fit: BoxFit.cover,),
+                                            Center(
+                                              child: CircularProgressIndicator(),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
                                   errorWidget: (context, url, error) => ClipRRect(
                                       borderRadius:
                                           BorderRadius.all(Radius.circular(50)),
                                       child: Image.asset(
                                           'assets/images/png/placeholder.jpg',height: 70,width: 70,)),
+                                  height: 70,width: 70,
                                 ),
-                                backgroundColor: Colors.white,
-                                radius: 40,
-                                backgroundImage: AssetImage(
-                                    'assets/images/png/placeholder.jpg'),
                               ),
                               SizedBox(
-                                width: 8,
+                                width: 10,
                               ),
                               Expanded(
                                 child: Column(
@@ -124,13 +135,13 @@ class _HomePageState extends State<HomePage>
                                 "assets/images/png/ic_notifications.png",
                                 height: 34,
                               ),
-                              SizedBox(
+                              /*SizedBox(
                                 width: 10,
                               ),
                               Image.asset(
                                 "assets/images/png/ic_scan.png",
                                 height: 34,
-                              ),
+                              ),*/
                             ],
                           ),
                           SizedBox(
@@ -142,11 +153,11 @@ class _HomePageState extends State<HomePage>
                             children: [
                               Expanded(
                                 child: Text(
-                                    "\$${state.dashboardModel!.balance}",
+                                    "\$${state.dashboardModel!.totalInvestmentUsdt}",
                                     style: context.textTheme.headlineLarge
                                         ?.copyWith(fontSize: 28)),
                               ),
-                              Container(
+                              /*Container(
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 8, vertical: 4),
                                 decoration: BoxDecoration(
@@ -156,7 +167,7 @@ class _HomePageState extends State<HomePage>
                                     style: context.textTheme.bodySmall
                                         ?.copyWith(
                                             color: AppColors.lightGreen)),
-                              )
+                              )*/
                             ],
                           ),
                         ],
@@ -185,13 +196,42 @@ class _HomePageState extends State<HomePage>
                               return Builder(
                                 builder: (BuildContext context) {
                                   return ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                                    child: CachedNetworkImage(
+                                      imageUrl:
+                                      'https://dollarax.com/${imgUrl.image}',
+                                      placeholder: (context, url) =>
+                                          SizedBox(
+                                            height: 130,
+                                            child: Stack(
+                                              children: [
+                                                Image.asset(
+                                                  'assets/images/png/slider_placeholder.png',width: double.infinity,
+                                                  fit: BoxFit.cover,),
+                                                Center(
+                                                  child: CircularProgressIndicator(),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                      errorWidget: (context, url, error) => Image.asset(
+                                        'assets/images/png/slider_placeholder.png',
+                                        width: double.infinity,
+                                        height: 130,
+                                        fit: BoxFit.cover,),
+                                      width: double.infinity,
+                                      height: 130,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  );
+                                  /*return ClipRRect(
                                     child: Image.network(
                                       'https://dollarax.com/${imgUrl.image}',
                                       fit: BoxFit.cover,
                                     ),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(16)),
-                                  );
+                                  );*/
                                 },
                               );
                             }).toList(),
@@ -202,6 +242,7 @@ class _HomePageState extends State<HomePage>
                           Container(
                             padding: EdgeInsets.all(20),
                             decoration: BoxDecoration(
+                                border: Border.all(color: AppColors.secondary),
                                 borderRadius: BorderRadius.circular(10),
                                 color: AppColors.fieldColor),
                             child: Row(
@@ -216,10 +257,10 @@ class _HomePageState extends State<HomePage>
                                     SizedBox(
                                       height: 8,
                                     ),
-                                    Text("Total Deposit",
+                                    Text("DollarAx Coin",
                                         style: context.textTheme.bodySmall),
                                     Text(
-                                        "\$${state.dashboardModel!.totalReferralInvestment}",
+                                        "\$${state.dashboardModel!.walletBalanceDollarAx}",
                                         style: context.textTheme.headlineMedium)
                                   ],
                                 )),
@@ -238,10 +279,10 @@ class _HomePageState extends State<HomePage>
                                     SizedBox(
                                       height: 8,
                                     ),
-                                    Text("Total Profit & Loss",
+                                    Text("Trade Profit & Loss",
                                         style: context.textTheme.bodySmall),
                                     Text(
-                                        "\$${state.dashboardModel!.profitBalance}",
+                                        "\$${state.dashboardModel!.profitLossDollarAx}",
                                         style: context.textTheme.headlineMedium)
                                   ],
                                 ))
@@ -318,9 +359,11 @@ class _HomePageState extends State<HomePage>
                 ),
               );
             }
-            if (state.dashBoardStatus == DashBoardRefreshStatus.loading) {
+            if (state.dashBoardStatus == DashBoardRefreshStatus.error) {
               return Center(
-                child: Text(state.message),
+                child: Text(state.message,style: TextStyle(
+                  color: Colors.white
+                ),),
               );
             }
             return EmptyWidget();

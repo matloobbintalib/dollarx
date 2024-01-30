@@ -1,6 +1,5 @@
 import 'package:dollarx/utils/extensions/extended_context.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../constants/app_colors.dart';
 

@@ -1,9 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/deposit/models/deposit_data_response.dart';
-import 'package:dollarx/modules/deposit/repo/deposit_repository.dart';
-import 'package:dollarx/modules/home/repo/home_repo.dart';
 import 'package:dollarx/modules/investment/repo/investment_repo.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../../../core/exceptions/api_error.dart';
 import '../models/investment_response.dart';

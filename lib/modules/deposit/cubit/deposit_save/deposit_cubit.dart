@@ -50,7 +50,7 @@ class DepositCubit extends Cubit<DepositState> {
       }
       BaseResponse baseResponse = await _lotRepository.depositSave(depositInput);
       if (baseResponse.status == 200) {
-        emit(state.copyWith(depositStatus: DepositStatus.success));
+        emit(state.copyWith(depositStatus: DepositStatus.success, message: baseResponse.message));
       } else {
         emit(state.copyWith(
             depositStatus: DepositStatus.error,

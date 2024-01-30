@@ -4,7 +4,6 @@ import 'package:dollarx/modules/deposit/cubit/deposit_data/deposit_data_state.da
 import 'package:dollarx/modules/deposit/cubit/deposit_save/deposit_cubit.dart';
 import 'package:dollarx/modules/deposit/models/deposit_input.dart';
 import 'package:dollarx/modules/deposit/widgets/deposit_currency_widget.dart';
-import 'package:dollarx/modules/investment/widgets/investment_widget.dart';
 import 'package:dollarx/ui/widgets/base_scaffold.dart';
 import 'package:dollarx/ui/widgets/custom_appbar.dart';
 import 'package:dollarx/ui/widgets/custom_dropdown.dart';
@@ -86,18 +85,18 @@ class _DepositPageState extends State<DepositPage> {
                           ),
                           DepositWidget(
                               iconPath: "assets/images/png/ic_usdt.png",
-                              title: "USDT Withdrawals",
+                              title: "USDT Deposit",
                               price:
                                   "\$${state.depositModel!.usdtDepositsBalance}"),
                           DepositWidget(
                               iconPath:
                                   "assets/images/png/ic_bitcoin_yellow.png",
-                              title: "BTC Withdrawals",
+                              title: "BTC Deposit",
                               price:
                                   "\$${state.depositModel!.btcDepositsBalance}"),
                           DepositWidget(
                               iconPath: "assets/images/png/ic_eth.png",
-                              title: "ETH Withdrawals",
+                              title: "ETH Deposit",
                               price:
                                   "\$${state.depositModel!.ethDepositsBalance}"),
                           SizedBox(
@@ -219,26 +218,26 @@ class _DepositPageState extends State<DepositPage> {
                           SizedBox(
                             height: 8,
                           ),
-                          Container(
-                            height: 46,
-                            padding: EdgeInsets.symmetric(horizontal: 16),
-                            decoration: BoxDecoration(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(6)),
-                                color: AppColors.fieldColor,
-                                border: Border.all(
-                                  width: 1,
-                                  color: AppColors.secondary,
-                                )),
-                            child: Row(
-                              children: [
-                                OnClick(
-                                  onTap: () {
-                                    context
-                                        .read<ImagePickerCubit>()
-                                        .pickImage(ImageSource.gallery);
-                                  },
-                                  child: Container(
+                          OnClick(
+                            onTap: () {
+                              context
+                                  .read<ImagePickerCubit>()
+                                  .pickImage(ImageSource.gallery);
+                            },
+                            child: Container(
+                              height: 46,
+                              padding: EdgeInsets.symmetric(horizontal: 16),
+                              decoration: BoxDecoration(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(6)),
+                                  color: AppColors.fieldColor,
+                                  border: Border.all(
+                                    width: 1,
+                                    color: AppColors.secondary,
+                                  )),
+                              child: Row(
+                                children: [
+                                  Container(
                                     child: Text("Choose File",
                                         style: context.textTheme.bodySmall
                                             ?.copyWith(
@@ -248,24 +247,24 @@ class _DepositPageState extends State<DepositPage> {
                                     padding: EdgeInsets.symmetric(
                                         horizontal: 20, vertical: 4),
                                   ),
-                                ),
-                                SizedBox(
-                                  width: 8,
-                                ),
-                                Expanded(
-                                  child: Text(
-                                    imagePickerState.hasImage
-                                        ? imagePickerState.file!.path.toString()
-                                        : "No File Chosen",
-                                    style:
-                                        context.textTheme.bodySmall?.copyWith(
-                                      color: AppColors.grey1,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    maxLines: 1,
+                                  SizedBox(
+                                    width: 8,
                                   ),
-                                )
-                              ],
+                                  Expanded(
+                                    child: Text(
+                                      imagePickerState.hasImage
+                                          ? imagePickerState.file!.path.toString()
+                                          : "No File Chosen",
+                                      style:
+                                          context.textTheme.bodySmall?.copyWith(
+                                        color: AppColors.grey1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      maxLines: 1,
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                           SizedBox(

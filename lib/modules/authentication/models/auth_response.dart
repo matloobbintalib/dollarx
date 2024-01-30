@@ -44,37 +44,37 @@ class AuthResponse {
 
 class DashboardModel {
   UserModel user;
-  int balance;
-  String profitBalance;
-  String bonusBalance;
-  String totalReferralInvestment;
+  dynamic walletBalanceDollarAx;
+  dynamic profitLossDollarAx;
+  dynamic totalInvestmentUsdt;
   List<Slider> sliders;
+  List<dynamic> topTraders;
 
   DashboardModel({
     required this.user,
-    required this.balance,
-    required this.profitBalance,
-    required this.bonusBalance,
-    required this.totalReferralInvestment,
+    required this.walletBalanceDollarAx,
+    required this.profitLossDollarAx,
+    required this.totalInvestmentUsdt,
     required this.sliders,
+    required this.topTraders,
   });
 
   factory DashboardModel.fromJson(Map<String, dynamic> json) => DashboardModel(
     user: UserModel.fromJson(json["user"]),
-    balance: json["balance"],
-    profitBalance: json["profit_balance"],
-    bonusBalance: json["bonus_balance"],
-    totalReferralInvestment: json["totalReferralInvestment"],
+    walletBalanceDollarAx: json["walletBalanceDollarAx"],
+    profitLossDollarAx: json["profitLossDollarAx"],
+    totalInvestmentUsdt: json["totalInvestmentUSDT"],
     sliders: List<Slider>.from(json["sliders"].map((x) => Slider.fromJson(x))),
+    topTraders: List<dynamic>.from(json["topTraders"].map((x) => x)),
   );
 
   Map<String, dynamic> toJson() => {
     "user": user.toJson(),
-    "balance": balance,
-    "profit_balance": profitBalance,
-    "bonus_balance": bonusBalance,
-    "totalReferralInvestment": totalReferralInvestment,
+    "walletBalanceDollarAx": walletBalanceDollarAx,
+    "profitLossDollarAx": profitLossDollarAx,
+    "totalInvestmentUSDT": totalInvestmentUsdt,
     "sliders": List<dynamic>.from(sliders.map((x) => x.toJson())),
+    "topTraders": List<dynamic>.from(topTraders.map((x) => x)),
   };
 }
 

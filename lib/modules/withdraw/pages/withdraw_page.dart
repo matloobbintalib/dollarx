@@ -1,5 +1,4 @@
 import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/modules/investment/widgets/investment_widget.dart';
 import 'package:dollarx/modules/withdraw/cubit/withdraw_data/withdraw_data_cubit.dart';
 import 'package:dollarx/modules/withdraw/cubit/withdraw_data/withdraw_data_state.dart';
 import 'package:dollarx/modules/withdraw/cubit/withdraw_save/withdraw_save_cubit.dart';
@@ -12,7 +11,6 @@ import 'package:dollarx/ui/widgets/empty_widget.dart';
 import 'package:dollarx/ui/widgets/loading_indicator.dart';
 import 'package:dollarx/utils/display/display_utils.dart';
 import 'package:dollarx/utils/utils.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -82,17 +80,16 @@ class _WithdrawPageState extends State<WithdrawPage> {
                           iconPath: "assets/images/png/ic_usdt.png",
                           title: "USDT Withdrawals",
                           price:
-                              "\$${state.withdrawModel!.usdtWithdrawBalance}"),
+                              "\$ ${state.withdrawModel!.usdtWithdrawBalance}"),
                       DepositWidget(
                           iconPath: "assets/images/png/ic_bitcoin_yellow.png",
                           title: "BTC Withdrawals",
-                          price:
-                              "\$${state.withdrawModel!.btcWithdrawBalance}"),
+                          price:'${state.withdrawModel!.btcWithdrawBalance} BTC'),
                       DepositWidget(
                           iconPath: "assets/images/png/ic_eth.png",
                           title: "ETH Withdrawals",
                           price:
-                              "\$${state.withdrawModel!.ethWithdrawBalance}"),
+                              '${state.withdrawModel!.ethWithdrawBalance} ETH'),
                       SizedBox(
                         height: 10,
                       ),
@@ -104,30 +101,84 @@ class _WithdrawPageState extends State<WithdrawPage> {
                       SizedBox(
                         height: 8,
                       ),
-                      CustomDropDown(
-                        hint: "Available Balance",
-                        items: [],
-                        prefixIconPath:
-                            "assets/images/png/ic_available_balance.png",
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      CustomDropDown(
-                        hint: "Available Bonus",
-                        items: [],
-                        prefixIconPath:
-                            "assets/images/png/ic_available_bonus.png",
-                      ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      CustomDropDown(
-                        hint: "Available Profit",
-                        items: [],
-                        prefixIconPath:
-                            "assets/images/png/ic_available_profit.png",
-                      ),
+                      /*Container(
+                        margin:  EdgeInsets.only(bottom: 16),
+                        padding: EdgeInsets.only(left: 16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(6)),
+                          color: AppColors.fieldColor,
+                        ),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child:Row(
+                                children: [
+                                  Image.asset("assets/images/png/ic_available_balance.png", width: 34,height: 34,),
+                                  SizedBox(width: 8,),
+                                  Text("Available Balance",
+                                    style: context.textTheme.bodySmall?.copyWith(fontSize: 11),),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: 1,
+                              height: 70,
+                              color: AppColors.grey3,
+                            ),
+                            Expanded(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(bottomRight: Radius.circular(6),topRight: Radius.circular(6)),
+                                    color: AppColors.lightChocolateColor,
+                                    border: Border(
+                                        top: BorderSide(color: AppColors.secondary, width: 1.5),
+                                        bottom: BorderSide(color: AppColors.secondary, width: 1.5),
+                                        right: BorderSide(color: AppColors.secondary, width: 1.5)
+                                    )
+                                ),
+                                padding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text("USTD ${state.withdrawModel!.balanceUsdt}",
+                                        style: context.textTheme.bodyLarge?.copyWith(fontSize: 16)),
+                                    Text("BTC ${state.withdrawModel!.balanceBtc}",
+                                        style: context.textTheme.bodyLarge?.copyWith(fontSize: 16)),
+                                    Text("ETH ${state.withdrawModel!.balanceEth}",
+                                        style: context.textTheme.bodyLarge?.copyWith(fontSize: 16))
+                                  ],
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),*/
+                      DepositWidget(
+                          iconPath: "assets/images/png/ic_usdt.png",
+                          title: "Wallet Balance USDT",
+                          price: state.withdrawModel!.balanceUsdt != null?
+                          '${state.withdrawModel!.balanceUsdt} USDT': "0.0 USDT"),
+                      DepositWidget(
+                          iconPath: "assets/images/png/ic_bitcoin_yellow.png",
+                          title: "Wallet Balance BTC",
+                          price: state.withdrawModel!.balanceBtc != null?
+                          '${state.withdrawModel!.balanceBtc} BTC': "0.0 BTC"),
+                      DepositWidget(
+                          iconPath: "assets/images/png/ic_eth.png",
+                          title: "Wallet Balance ETH",
+                          price: state.withdrawModel!.balanceEth != null?
+                          '${state.withdrawModel!.balanceEth} ETH': "0.0 ETH"),
+                      DepositWidget(
+                          iconPath: "assets/images/png/ic_available_bonus.png",
+                          title: "Available Bonus",
+                          price: state.withdrawModel!.bonusBalance != null?
+                          '${state.withdrawModel!.bonusBalance} USDT': "0.0 USDT"),
+                      DepositWidget(
+                          iconPath: "assets/images/png/ic_available_profit.png",
+                          title: "Available Profit",
+                          price: state.withdrawModel!.profitBalance != null ?
+                          '${state.withdrawModel!.profitBalance} USDT':"0.0 USDT"),
                       SizedBox(
                         height: 30,
                       ),
@@ -269,7 +320,7 @@ class _WithdrawPageState extends State<WithdrawPage> {
                                 WithdrawSaveStatus.success) {
                               ToastLoader.remove();
                               DisplayUtils.showToast(
-                                  context, withdrawSaveState.message);
+                                  context, "Withdraw successfully!");
                               NavRouter.pop(context);
                             } else if (withdrawSaveState.withdrawStatus ==
                                 WithdrawSaveStatus.error) {
@@ -314,7 +365,7 @@ class _WithdrawPageState extends State<WithdrawPage> {
               }
               if (state.withdrawDataStatus == WithdrawDataStatus.error) {
                 return Center(
-                  child: Text(state.message),
+                  child: Text(state.message,style: TextStyle(color: Colors.white)),
                 );
               }
               return EmptyWidget();

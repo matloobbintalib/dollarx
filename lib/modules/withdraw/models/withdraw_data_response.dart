@@ -37,10 +37,15 @@ class WithdrawDataResponse {
 }
 
 class WithdrawModel {
-  int usdtWithdrawBalance;
-  int btcWithdrawBalance;
-  int ethWithdrawBalance;
+  dynamic usdtWithdrawBalance;
+  dynamic btcWithdrawBalance;
+  dynamic ethWithdrawBalance;
   List<Currency> currencies;
+  dynamic balanceBtc;
+  dynamic balanceEth;
+  dynamic balanceUsdt;
+  dynamic profitBalance;
+  dynamic bonusBalance;
   WithdrawTypes withdrawTypes;
 
   WithdrawModel({
@@ -48,6 +53,11 @@ class WithdrawModel {
     required this.btcWithdrawBalance,
     required this.ethWithdrawBalance,
     required this.currencies,
+    required this.balanceBtc,
+    required this.balanceEth,
+    required this.balanceUsdt,
+    required this.profitBalance,
+    required this.bonusBalance,
     required this.withdrawTypes,
   });
 
@@ -56,6 +66,11 @@ class WithdrawModel {
     btcWithdrawBalance: json["BTCWithdrawBalance"],
     ethWithdrawBalance: json["ETHWithdrawBalance"],
     currencies: List<Currency>.from(json["currencies"].map((x) => Currency.fromJson(x))),
+    balanceBtc: json["balanceBTC"],
+    balanceEth: json["balanceETH"],
+    balanceUsdt: json["balanceUSDT"],
+    profitBalance: json["profitBalance"],
+    bonusBalance: json["bonusBalance"],
     withdrawTypes: WithdrawTypes.fromJson(json["withdraw_types"]),
   );
 
@@ -64,6 +79,11 @@ class WithdrawModel {
     "BTCWithdrawBalance": btcWithdrawBalance,
     "ETHWithdrawBalance": ethWithdrawBalance,
     "currencies": List<dynamic>.from(currencies.map((x) => x.toJson())),
+    "balanceBTC": balanceBtc,
+    "balanceETH": balanceEth,
+    "balanceUSDT": balanceUsdt,
+    "profitBalance": profitBalance,
+    "bonusBalance": bonusBalance,
     "withdraw_types": withdrawTypes.toJson(),
   };
 }
