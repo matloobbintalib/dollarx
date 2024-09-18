@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dollarx/utils/utils.dart';
+import 'package:dollarax/utils/utils.dart';
 
 class ConfirmationDialog extends StatelessWidget {
   const ConfirmationDialog({

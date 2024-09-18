@@ -1,4 +1,4 @@
-import 'package:dollarx/modules/investment/models/investment_response.dart';
+import 'package:dollarax/modules/investment/models/investment_response.dart';
 
 enum InvestmentStatus {
   initial,

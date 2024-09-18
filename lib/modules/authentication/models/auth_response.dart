@@ -4,7 +4,9 @@
 
 import 'dart:convert';
 
-import 'package:dollarx/modules/user/models/user_model.dart';
+import 'package:dollarax/modules/home/models/dashoboard_data_response.dart';
+import 'package:dollarax/modules/trade/models/active_trade_response.dart';
+import 'package:dollarax/modules/user/models/user_model.dart';
 
 AuthResponse authResponseFromJson(dynamic json) => AuthResponse.fromJson(json);
 
@@ -48,7 +50,8 @@ class DashboardModel {
   dynamic profitLossDollarAx;
   dynamic totalInvestmentUsdt;
   List<Slider> sliders;
-  List<dynamic> topTraders;
+  List<LatestWithdrawal> latestWithdrawals;
+  List<LatestDeposit> latestDeposits;
 
   DashboardModel({
     required this.user,
@@ -56,7 +59,8 @@ class DashboardModel {
     required this.profitLossDollarAx,
     required this.totalInvestmentUsdt,
     required this.sliders,
-    required this.topTraders,
+    required this.latestWithdrawals,
+    required this.latestDeposits
   });
 
   factory DashboardModel.fromJson(Map<String, dynamic> json) => DashboardModel(
@@ -65,7 +69,8 @@ class DashboardModel {
     profitLossDollarAx: json["profitLossDollarAx"],
     totalInvestmentUsdt: json["totalInvestmentUSDT"],
     sliders: List<Slider>.from(json["sliders"].map((x) => Slider.fromJson(x))),
-    topTraders: List<dynamic>.from(json["topTraders"].map((x) => x)),
+    latestWithdrawals: List<LatestWithdrawal>.from(json["latestWithdrawals"].map((x) => LatestWithdrawal.fromJson(x))),
+    latestDeposits: List<LatestDeposit>.from(json["latestDeposits"].map((x) => LatestDeposit.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -74,7 +79,8 @@ class DashboardModel {
     "profitLossDollarAx": profitLossDollarAx,
     "totalInvestmentUSDT": totalInvestmentUsdt,
     "sliders": List<dynamic>.from(sliders.map((x) => x.toJson())),
-    "topTraders": List<dynamic>.from(topTraders.map((x) => x)),
+    "latestWithdrawals": List<dynamic>.from(latestWithdrawals.map((x) => x.toJson())),
+    "latestDeposits": List<dynamic>.from(latestDeposits.map((x) => x.toJson())),
   };
 }
 

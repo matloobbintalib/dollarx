@@ -8,20 +8,41 @@ import '../repo/image_picker_repo.dart';
 part 'image_picker_state.dart';
 
 class ImagePickerCubit extends Cubit<ImagePickerState> {
-  ImagePickerCubit(this._imagePickerRepo) : super(const ImagePickerState(null));
+  ImagePickerCubit(this._imagePickerRepo)
+      : super( ImagePickerState.initial());
 
   final ImagePickerRepo _imagePickerRepo;
 
-  void pickImage(ImageSource source) async {
+  void pickImage(
+    ImageSource source,
+  ) async {
     final file = await _imagePickerRepo.pickImage(source);
     if (file == null) {
-      emit(const ImagePickerState(null, hasImage: false));
+      emit(state.copyWith(file: null,hasImage: false));
     } else {
-      emit(ImagePickerState(file, hasImage: true));
+      emit(state.copyWith(file: file,hasImage: true));
+    }
+  }
+
+  void pickBackImage(ImageSource source) async {
+    final file = await _imagePickerRepo.pickImage(source);
+    if (file == null) {
+      emit(state.copyWith(backImageFile: null));
+    } else {
+      emit(state.copyWith(backImageFile: file));
+    }
+  }
+
+  void pickFrontImage(ImageSource source) async {
+    final file = await _imagePickerRepo.pickImage(source);
+    if (file == null) {
+      emit(state.copyWith(frontImageFile: null));
+    } else {
+      emit(state.copyWith(frontImageFile: file));
     }
   }
 
   void clear() {
-    const ImagePickerState(null, hasImage: false);
+    emit(ImagePickerState.initial());
   }
 }

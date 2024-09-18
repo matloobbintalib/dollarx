@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/history/cubit/withdraw/withdraw_history_state.dart';
-import 'package:dollarx/modules/history/models/withdraw_history_response.dart';
+import 'package:dollarax/modules/history/cubit/withdraw/withdraw_history_state.dart';
+import 'package:dollarax/modules/history/models/withdraw_history_response.dart';
 import '../../../../core/exceptions/api_error.dart';
 import '../../repo/history_repo.dart';
 

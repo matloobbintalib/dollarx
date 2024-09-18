@@ -1,16 +1,17 @@
-import 'package:dollarx/modules/dashboard/pages/dashboard_page.dart';
+import 'package:dollarax/modules/dashboard/pages/dashboard_page.dart';
+import 'package:dollarax/utils/display/display_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dollarx/config/config.dart';
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/modules/authentication/models/login_input.dart';
-import 'package:dollarx/modules/authentication/pages/forgot_password_page.dart';
-import 'package:dollarx/modules/authentication/pages/register_page.dart';
-import 'package:dollarx/modules/authentication/widgets/password_suffix_widget.dart';
-import 'package:dollarx/ui/widgets/base_scaffold.dart';
-import 'package:dollarx/ui/widgets/on_click.dart';
-import 'package:dollarx/utils/utils.dart';
+import 'package:dollarax/config/config.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/modules/authentication/models/login_input.dart';
+import 'package:dollarax/modules/authentication/pages/forgot_password_page.dart';
+import 'package:dollarax/modules/authentication/pages/register_page.dart';
+import 'package:dollarax/modules/authentication/widgets/password_suffix_widget.dart';
+import 'package:dollarax/ui/widgets/base_scaffold.dart';
+import 'package:dollarax/ui/widgets/on_click.dart';
+import 'package:dollarax/utils/utils.dart';
 import '../../../constants/asset_paths.dart';
 import '../../../core/core.dart';
 import '../../../ui/input/input_field.dart';
@@ -58,7 +59,7 @@ class _LoginViewState extends State<LoginView> {
           NavRouter.pushAndRemoveUntil(context, DashboardPage());
         } else if (state.loginStatus == LoginStatus.error) {
           ToastLoader.remove();
-          context.showSnackBar(state.message);
+          DisplayUtils.showToast(context, state.message);
         }
       },
       builder: (context, state) {
@@ -77,11 +78,8 @@ class _LoginViewState extends State<LoginView> {
                   ),
                   Image.asset(
                     AssetPaths.logoPng,
-                    width: 120,
-                    height: 120,
-                  ),
-                  SizedBox(
-                    height: 24,
+                    height: 180,
+                    width: 200,
                   ),
                   Text(
                     "Login Account",

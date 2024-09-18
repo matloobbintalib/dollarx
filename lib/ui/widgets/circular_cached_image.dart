@@ -9,21 +9,22 @@ class CircularCachedImage extends StatelessWidget {
   final double height;
   final BoxFit fit;
   final String errorPath;
+  final double borderRadius;
+  final Color borderColor;
 
-  const CircularCachedImage({super.key, 
+  const CircularCachedImage({super.key,
     required this.imageUrl,
     this.width = 280,
     this.height = 280,
     this.fit = BoxFit.cover,
-    this.errorPath =  'assets/images/png/placeholder.jpg',
+    required this.errorPath , this.borderRadius = 12,this.borderColor = Colors.transparent
   });
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: width,
       height: height,
-
       child: CachedNetworkImage(
         imageUrl: imageUrl,
         placeholder: (context, url) => const Center(child: LoadingIndicator(),),
@@ -31,23 +32,25 @@ class CircularCachedImage extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              image: imageProvider, fit: BoxFit.cover,),
+              image: DecorationImage(
+                image: imageProvider,),
+              borderRadius: BorderRadius.circular(borderRadius),
+              border: Border.all(color: borderColor,),
+              color: Colors.white
           ),
         ),
-        errorWidget: (context, url, error) =>  Center(
-            child: Container(
-              width: width,
-              height: height,
-              decoration: BoxDecoration(
-                color: Colors.blue,
-                image: DecorationImage(
-                  image: AssetImage(
-                      errorPath),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            )),
+        errorWidget: (context, url, error) =>  ClipRRect(
+          borderRadius: BorderRadius.circular(borderRadius),
+          child: Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(borderRadius),
+                border: Border.all(color: borderColor,)
+            ),
+            child: Image.asset(errorPath, fit: BoxFit.cover,),
+          ),
+        ),
         fit: fit,
       ),
     );

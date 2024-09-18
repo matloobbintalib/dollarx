@@ -3,7 +3,7 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/authentication/models/base_response.dart';
+import 'package:dollarax/modules/authentication/models/base_response.dart';
 
 import '../../../../../../core/exceptions/api_error.dart';
 import '../../repo/deposit_repository.dart';

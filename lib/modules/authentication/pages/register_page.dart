@@ -1,15 +1,16 @@
-import 'package:dollarx/modules/authentication/pages/otp_page.dart';
+import 'package:dollarax/modules/authentication/pages/otp_page.dart';
+import 'package:dollarax/utils/display/display_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dollarx/config/config.dart';
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/modules/authentication/cubits/register/register_cubit.dart';
-import 'package:dollarx/modules/authentication/models/register_input.dart';
-import 'package:dollarx/modules/authentication/pages/login_page.dart';
-import 'package:dollarx/modules/authentication/widgets/password_suffix_widget.dart';
-import 'package:dollarx/ui/widgets/base_scaffold.dart';
-import 'package:dollarx/ui/widgets/on_click.dart';
-import 'package:dollarx/utils/utils.dart';
+import 'package:dollarax/config/config.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/modules/authentication/cubits/register/register_cubit.dart';
+import 'package:dollarax/modules/authentication/models/register_input.dart';
+import 'package:dollarax/modules/authentication/pages/login_page.dart';
+import 'package:dollarax/modules/authentication/widgets/password_suffix_widget.dart';
+import 'package:dollarax/ui/widgets/base_scaffold.dart';
+import 'package:dollarax/ui/widgets/on_click.dart';
+import 'package:dollarax/utils/utils.dart';
 import '../../../core/core.dart';
 import '../../../ui/input/input_field.dart';
 import '../../../ui/widgets/custom_appbar.dart';
@@ -57,7 +58,7 @@ class _RegisterPageViewState extends State<RegisterPageView> {
           NavRouter.push(context, OtpPage(email: emailController.text.trim(), isFromRegister: true,));
         } else if (state.registerStatus == RegisterStatus.error) {
           ToastLoader.remove();
-          context.showSnackBar(state.message);
+          DisplayUtils.showToast(context, state.message);
         }
       },
       builder: (context, state) {
@@ -168,9 +169,11 @@ class _RegisterPageViewState extends State<RegisterPageView> {
                   SizedBox(
                     height: 8,
                   ),
-                  InputField.name(
+                  InputField(
                     controller: parentIdController,
                     label: "Type Your Referral",
+                    textInputAction: TextInputAction.done,
+                    keyboardType: TextInputType.name,
                   ),
                   SizedBox(
                     height: 24,

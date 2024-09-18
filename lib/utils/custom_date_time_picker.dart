@@ -16,7 +16,7 @@ class CustomDateTimePicker {
     final DateTime? picked = await showDatePicker(
         context: context,
         initialDate: DateTime.now(),
-        firstDate: DateTime(2015, 8),
+        firstDate: DateTime(1915, 8),
         lastDate: DateTime.now());
     if (picked != null) {
       return changeDateFormat(picked);
@@ -58,7 +58,7 @@ class CustomDateTimePicker {
   }
 
   static String changeDateFormat(DateTime date) {
-    final DateFormat formatter = DateFormat('dd/MM/yyyy');
+    final DateFormat formatter = DateFormat('yyyy-MM-dd');
     final String formatted = formatter.format(date);
     debugPrint(formatted); // something like 2013-04-20
     return formatted;
@@ -75,7 +75,27 @@ class CustomDateTimePicker {
   }
 }
 
-String changeDateFormat(String inputDate) {
+String changeDateTimeFormat(String inputDate) {
   return DateFormat("yyyy-MM-dd'T'00:00:00.000")
       .format(DateFormat('dd/MM/yyyy').parse(inputDate));
+}
+
+String changeDateTimeFormat1(DateTime inputDateTime , String format) {
+  return DateFormat(format)
+      .format(inputDateTime);
+}
+String roundTwoDecimal(String value) {
+  double number = double.parse(value);
+  return number.toStringAsFixed(2);
+}
+
+String roundEightDecimal(String value) {
+  double number = double.parse(value);
+  return number.toStringAsFixed(8);
+}
+
+String changeDateFormat(String inputDate) {
+  DateTime dateTime = DateTime.parse(inputDate);
+  String formattedDate = DateFormat('dd-MM-yyyy').format(dateTime);
+  return formattedDate;
 }

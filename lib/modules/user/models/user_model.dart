@@ -3,27 +3,65 @@ class UserModel {
   String name;
   String referralId;
   String email;
-  String? parentId;
+  String kycStatus;
+  String parentId;
   String planId;
   String mobile;
-  String? address;
+  String address;
   String status;
-  String? btcAddress;
-  String? ethAddress;
-  String? usdtAddress;
-  String? profilePic;
-  String? city;
-  dynamic bankName;
-  dynamic bankAccountName;
-  dynamic bankIbanNo;
-  dynamic kycDocType;
-  dynamic selfiPic;
-  dynamic kycDocument;
+  String profilePic;
+  String country;
+  String city;
+  String bankName;
+  String bankAccountName;
+  String bankIbanNo;
+  String btcAddress;
+  String ethAddress;
+  String usdtAddress;
+  String kycDocType;
+  String selfiPic;
+  String kycDocument;
+  String postalCode;
+  String gender;
+  String dob;
+  String cnicFont;
+  String cnicBack;
+
+  UserModel({
+    required this.id,
+    required this.name,
+    required this.referralId,
+    required this.email,
+    required this.kycStatus,
+    required this.parentId,
+    required this.planId,
+    required this.mobile,
+    required this.address,
+    required this.status,
+    required this.profilePic,
+    required this.country,
+    required this.city,
+    required this.bankName,
+    required this.bankAccountName,
+    required this.bankIbanNo,
+    required this.btcAddress,
+    required this.ethAddress,
+    required this.usdtAddress,
+    required this.kycDocType,
+    required this.selfiPic,
+    required this.kycDocument,
+    required this.postalCode,
+    required this.gender,
+    required this.dob,
+    required this.cnicFont,
+    required this.cnicBack,
+  });
 
   static UserModel empty = UserModel(
       id: -1,
       name: '',
       referralId: '',
+      kycStatus: '',
       email: '',
       parentId: '',
       planId: '',
@@ -33,53 +71,48 @@ class UserModel {
       btcAddress: '',
       ethAddress: '',
       usdtAddress: '',
-      profilePic: '', city: '', bankName: '', bankAccountName: '', bankIbanNo: '', kycDocType: null, selfiPic: null, kycDocument: null,
-  );
-
-  UserModel({
-    required this.id,
-    required this.name,
-    required this.referralId,
-    required this.email,
-    required this.parentId,
-    required this.planId,
-    required this.mobile,
-    required this.address,
-    required this.status,
-    required this.btcAddress,
-    required this.ethAddress,
-    required this.usdtAddress,
-    required this.profilePic,
-    required this.city,
-    required this.bankName,
-    required this.bankAccountName,
-    required this.bankIbanNo,
-    required this.kycDocType,
-    required this.selfiPic,
-    required this.kycDocument,
-  });
-
+      profilePic: '',
+      city: '',
+      country: '',
+      bankName: '',
+      bankAccountName: '',
+      bankIbanNo: '',
+      kycDocType: '',
+      selfiPic: '',
+      kycDocument: '',
+      postalCode: '',
+      gender: '',
+      dob: '',
+      cnicFont: '',
+      cnicBack: '');
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
     id: json["id"],
-    name: json["name"],
-    referralId: json["referral_id"],
-    email: json["email"],
-    parentId: json["parent_id"],
-    planId: json["plan_id"],
-    mobile: json["mobile"],
-    address: json["address"],
-    status: json["status"],
-    btcAddress: json["btc_address"],
-    ethAddress: json["eth_address"],
-    usdtAddress: json["usdt_address"],
-    profilePic: json["profile_pic"],
-    city: json["city"],
-    bankName: json["bank_name"],
-    bankAccountName: json["bank_account_name"],
-    bankIbanNo: json["bank_iban_no"],
-    kycDocType: json["kyc_doc_type"],
-    selfiPic: json["selfi_pic"],
-    kycDocument: json["kyc_document"],
+    name: json["name"]??'',
+    referralId: json["referral_id"]??'',
+    email: json["email"]??'',
+    kycStatus: json["kyc_status"]??'',
+    parentId: json["parent_id"]??'',
+    planId: json["plan_id"]??'',
+    mobile: json["mobile"]??'',
+    address: json["address"]??'',
+    status: json["status"]??'',
+    profilePic: json["profile_pic"]??'',
+    country: json["country"]??'',
+    city: json["city"]??'',
+    bankName: json["bank_name"]??'',
+    bankAccountName: json["bank_account_name"]??'',
+    bankIbanNo: json["bank_iban_no"]??'',
+    btcAddress: json["btc_address"]??'',
+    ethAddress: json["eth_address"]??'',
+    usdtAddress: json["usdt_address"]??'',
+    kycDocType: json["kyc_doc_type"]??'',
+    selfiPic: json["selfi_pic"]??'',
+    kycDocument: json["kyc_document"]??'',
+    postalCode: json["postal_code"]??'',
+    gender: json["gender"]??'',
+    dob: json["dob"]??'',
+    cnicFont: json["cnic_font"]??'',
+    cnicBack: json["cnic_back"]??'',
   );
 
   Map<String, dynamic> toJson() => {
@@ -87,24 +120,28 @@ class UserModel {
     "name": name,
     "referral_id": referralId,
     "email": email,
+    "kyc_status": kycStatus,
     "parent_id": parentId,
     "plan_id": planId,
     "mobile": mobile,
     "address": address,
     "status": status,
-    "btc_address": btcAddress,
-    "eth_address": ethAddress,
-    "usdt_address": usdtAddress,
     "profile_pic": profilePic,
+    "country": country,
     "city": city,
     "bank_name": bankName,
     "bank_account_name": bankAccountName,
     "bank_iban_no": bankIbanNo,
+    "btc_address": btcAddress,
+    "eth_address": ethAddress,
+    "usdt_address": usdtAddress,
     "kyc_doc_type": kycDocType,
     "selfi_pic": selfiPic,
     "kyc_document": kycDocument,
+    "postal_code": postalCode,
+    "gender": gender,
+    "dob": dob,
+    "cnic_font": cnicFont,
+    "cnic_back": cnicBack,
   };
-
-
-
 }

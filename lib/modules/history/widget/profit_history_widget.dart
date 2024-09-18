@@ -1,7 +1,8 @@
 
 
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/utils/custom_date_time_picker.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
@@ -33,7 +34,7 @@ class ProfitHistoryWidget extends StatelessWidget {
                 child:Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(roundTwoDecimal(profitHistoryModel.total),
+                    Text(profitHistoryModel.total,
                       style: context.textTheme.bodyMedium?.copyWith(color: AppColors.white, fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
                     Text(changeDateFormat(profitHistoryModel.createdAt),
                       style: context.textTheme.bodySmall?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300),textAlign: TextAlign.center,),
@@ -45,7 +46,7 @@ class ProfitHistoryWidget extends StatelessWidget {
                 child:Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(roundTwoDecimal(profitHistoryModel.amount) +" "+profitHistoryModel.currency,
+                    Text(profitHistoryModel.amount +" "+profitHistoryModel.currency,
                       style: context.textTheme.bodyMedium?.copyWith(color: AppColors.white, fontWeight: FontWeight.w600),textAlign: TextAlign.center,),
                     Text(profitHistoryModel.type,
                       style: context.textTheme.bodySmall?.copyWith(color: AppColors.secondary, fontWeight: FontWeight.w300, overflow: TextOverflow.ellipsis),textAlign: TextAlign.center,),
@@ -62,13 +63,6 @@ class ProfitHistoryWidget extends StatelessWidget {
     );
   }
 
-  String roundTwoDecimal(String value){
-    double number = double.parse(value);
-    return number.toStringAsFixed(2);
-  }
-  String changeDateFormat(String inputDate) {
-    DateTime dateTime = DateTime.parse(inputDate);
-    String formattedDate = DateFormat('dd-MM-yyyy').format(dateTime);
-    return formattedDate;
-  }
+
+
 }

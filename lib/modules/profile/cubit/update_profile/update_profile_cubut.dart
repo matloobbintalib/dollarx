@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/profile/cubit/update_profile/update_profile_state.dart';
+import 'package:dollarax/modules/profile/cubit/update_profile/update_profile_state.dart';
 import '../../../../core/exceptions/api_error.dart';
 import '../../../authentication/models/auth_response.dart';
 import '../../../authentication/models/base_response.dart';

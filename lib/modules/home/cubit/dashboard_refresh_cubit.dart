@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/home/repo/home_repo.dart';
+import 'package:dollarax/modules/home/repo/home_repo.dart';
 
 import '../../../../core/exceptions/api_error.dart';
 import '../models/dashoboard_data_response.dart';

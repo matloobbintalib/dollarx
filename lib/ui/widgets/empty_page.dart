@@ -7,9 +7,10 @@ class EmptyPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: Text('$title', style: TextStyle(
-          color: Colors.black
+          color: Colors.white
         ),),
       ),
     );

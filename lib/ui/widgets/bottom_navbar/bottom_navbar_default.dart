@@ -1,4 +1,4 @@
-import 'package:dollarx/constants/app_colors.dart';
+import 'package:dollarax/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavbarDefault extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/material.dart';
 import 'circular_cached_image.dart';
 
@@ -10,6 +10,7 @@ class ProfilePictureWidget extends StatelessWidget {
   final double width ;
   final double height;
   final bool showEditIcon;
+  final double borderRadius;
 
   const ProfilePictureWidget({
     Key? key,
@@ -17,7 +18,7 @@ class ProfilePictureWidget extends StatelessWidget {
     required this.onTap,
     this.width = 140,
     this.height = 140,
-    this.showEditIcon = true
+    this.showEditIcon = true, this.borderRadius = 70
   }) : super(key: key);
 
   @override
@@ -29,39 +30,28 @@ class ProfilePictureWidget extends StatelessWidget {
         child: Stack(
           children: [
             profileUrl.contains('http')
-                ? SizedBox(
-                    width: width,
-                    height: height,
-                    child: CircleAvatar(
-                      backgroundColor: context.colorScheme.background,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(70),
-                        child: Hero(
-                          tag: 'profile_image',
-                          child: CircularCachedImage(
-                            imageUrl: profileUrl,
-                            width: width,
-                            height: height,
-                          ),
-                        ),
-                      ),
-                    ),
-                  )
-                : SizedBox(
-                    width: 140,
-                    height: 140,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(70),
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: profileUrl.contains('assets/')
-                                  ? AssetImage(profileUrl) as ImageProvider
-                                  : FileImage(
-                                      File(profileUrl),
-                                    ))),
-                    ),
-                  ),
+                ? CircularCachedImage(
+              imageUrl: profileUrl,
+              width: width,
+              height: height,
+              borderRadius: borderRadius,
+              errorPath: "assets/images/png/image_not_found.png",
+              borderColor: Colors.grey.withOpacity(.1),
+            )
+                : Container(
+              width: width,
+              height: height,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey.withOpacity(.1)),
+                  borderRadius: BorderRadius.circular(borderRadius),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: profileUrl.contains('assets/')
+                          ? AssetImage(profileUrl) as ImageProvider
+                          : FileImage(
+                        File(profileUrl),
+                      ))),
+            ),
             Positioned(
               bottom: -1,
               right: 0,

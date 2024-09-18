@@ -3,7 +3,7 @@
 
 
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/authentication/models/base_response.dart';
+import 'package:dollarax/modules/authentication/models/base_response.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../constants/api_endpoints.dart';

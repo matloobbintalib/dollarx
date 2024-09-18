@@ -1,18 +1,18 @@
-import 'package:dollarx/modules/authentication/pages/reset_password_page.dart';
-import 'package:dollarx/modules/dashboard/pages/dashboard_page.dart';
+import 'package:dollarax/modules/authentication/pages/reset_password_page.dart';
+import 'package:dollarax/modules/dashboard/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:dollarx/config/config.dart';
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/modules/authentication/cubits/forgot_password/forgot_password_cubit.dart';
-import 'package:dollarx/modules/authentication/cubits/forgot_password/forgot_password_state.dart';
-import 'package:dollarx/modules/authentication/cubits/verify_otp/verify_otp_cubit.dart';
-import 'package:dollarx/modules/authentication/cubits/verify_otp/verify_otp_state.dart';
-import 'package:dollarx/modules/authentication/models/forgot_password_input.dart';
-import 'package:dollarx/modules/authentication/models/verify_otp_input.dart';
-import 'package:dollarx/ui/widgets/base_scaffold.dart';
-import 'package:dollarx/utils/display/display_utils.dart';
-import 'package:dollarx/utils/utils.dart';
+import 'package:dollarax/config/config.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/modules/authentication/cubits/forgot_password/forgot_password_cubit.dart';
+import 'package:dollarax/modules/authentication/cubits/forgot_password/forgot_password_state.dart';
+import 'package:dollarax/modules/authentication/cubits/verify_otp/verify_otp_cubit.dart';
+import 'package:dollarax/modules/authentication/cubits/verify_otp/verify_otp_state.dart';
+import 'package:dollarax/modules/authentication/models/forgot_password_input.dart';
+import 'package:dollarax/modules/authentication/models/verify_otp_input.dart';
+import 'package:dollarax/ui/widgets/base_scaffold.dart';
+import 'package:dollarax/utils/display/display_utils.dart';
+import 'package:dollarax/utils/utils.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/otp_field_style.dart';
 import 'package:otp_text_field/style.dart';
@@ -70,6 +70,7 @@ class _OtpPageViewState extends State<OtpPageView> {
           ToastLoader.show();
         } else if (state.verifyOtpStatus == VerifyOtpStatus.success) {
           ToastLoader.remove();
+          DisplayUtils.showToast(context, state.message);
           if(widget.isFromRegister){
             NavRouter.pushAndRemoveUntil(context, DashboardPage());
           }else{
@@ -77,7 +78,7 @@ class _OtpPageViewState extends State<OtpPageView> {
           }
         } else if (state.verifyOtpStatus == VerifyOtpStatus.error) {
           ToastLoader.remove();
-          context.showSnackBar(state.message);
+          DisplayUtils.showToast(context, state.message);
         }
       },
       builder: (context, state) {
@@ -157,7 +158,7 @@ class _OtpPageViewState extends State<OtpPageView> {
                       } else if (forgotPasswordState.forgotPasswordStatus ==
                           ForgotPasswordStatus.error) {
                         ToastLoader.remove();
-                        context.showSnackBar(state.message);
+                        DisplayUtils.showToast(context, state.message);
                       }
                     },
                     builder: (context, state) {
@@ -228,7 +229,7 @@ class _OtpPageViewState extends State<OtpPageView> {
           .read<VerifyOtpCubit>()
           .verifyOtp(VerifyOtpInput(email: widget.email, otp: otpValue.toString()));
     } else {
-      context.showSnackBar("Enter OTP");
+      DisplayUtils.showToast(context,"Enter OTP");
     }
   }
 }

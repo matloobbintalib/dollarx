@@ -38,6 +38,11 @@ class ApiError implements Exception {
             code: dioException.response?.statusCode,
             message: dioException.response?.data['message'],
           );
+          case 422:
+          return ApiError(
+            code: dioException.response?.statusCode,
+            message: dioException.response?.data['message'],
+          );
         case 503:
           return ApiError(
             code: dioException.response?.statusCode,

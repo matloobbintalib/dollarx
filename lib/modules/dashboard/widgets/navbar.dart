@@ -45,8 +45,8 @@ class _NavBarState extends State<NavBar> {
           Expanded(
             child: BottomNavIcon(
               callback: () => widget.onTap(1),
-              label: 'Referrals',
-              filledPath: 'assets/images/png/ic_referrals.png',
+              label: 'Copy Trade',
+              filledPath: 'assets/images/png/ic_copy_trade.png',
               isSelected: widget.selectedIndex == 1,
             ),
           ),

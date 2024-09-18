@@ -1,17 +1,19 @@
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/modules/history/cubit/deposit/deposit_history_cubit.dart';
-import 'package:dollarx/modules/history/cubit/withdraw/withdraw_history_cubit.dart';
-import 'package:dollarx/modules/history/cubit/withdraw/withdraw_history_state.dart';
-import 'package:dollarx/modules/history/widget/deposit_history_widget.dart';
-import 'package:dollarx/modules/history/widget/withdraw_history_widget.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/config/config.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/modules/history/pages/bonus_history_page.dart';
+import 'package:dollarax/modules/history/pages/buy_sell_history_page.dart';
+import 'package:dollarax/modules/history/pages/deposit_history_page.dart';
+import 'package:dollarax/modules/history/pages/exchange_history_page.dart';
+import 'package:dollarax/modules/history/pages/profit_history_page.dart';
+import 'package:dollarax/modules/history/pages/trade_history_page.dart';
+import 'package:dollarax/modules/history/pages/withdraw_history_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../core/di/service_locator.dart';
 import '../../../ui/widgets/custom_appbar.dart';
-import '../../../ui/widgets/toast_loader.dart';
-import '../cubit/deposit/deposit_history_state.dart';
+import '../../user/repository/user_account_repository.dart';
+import '../widget/history_widget.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({super.key});
@@ -20,142 +22,118 @@ class HistoryPage extends StatefulWidget {
   State<HistoryPage> createState() => _HistoryPageState();
 }
 
-class _HistoryPageState extends State<HistoryPage>
-    with SingleTickerProviderStateMixin {
-  int selectedIndex = 0;
-
-  final List<String> items = [
-    'Deposit',
-    'Withdraw',
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-  }
+class _HistoryPageState extends State<HistoryPage> {
+  UserAccountRepository _userAccountRepository = sl<UserAccountRepository>();
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => WithdrawHistoryCubit(sl()),
-      child: Scaffold(
-        appBar: CustomAppbar(
-          title: "History",
-        ),
-        backgroundColor: Colors.black,
-        body: BlocConsumer<DepositHistoryCubit, DepositHistoryState>(
-          listener: (context, depositState) {
-            if (depositState.depositHistoryStatus ==
-                DepositHistoryStatus.loading) {
-              ToastLoader.show();
-            } else if (depositState.depositHistoryStatus ==
-                DepositHistoryStatus.success) {
-              ToastLoader.remove();
-              setState(() {});
-            } else if (depositState.depositHistoryStatus ==
-                DepositHistoryStatus.error) {
-              ToastLoader.remove();
-              context.showSnackBar(depositState.message);
-            }
-          },
-          builder: (context, depositState) {
-            return BlocConsumer<WithdrawHistoryCubit, WithdrawHistoryState>(
-              listener: (context, withdrawState) {
-                if (withdrawState.withdrawHistoryStatus ==
-                    WithdrawHistoryStatus.loading) {
-                  ToastLoader.show();
-                } else if (withdrawState.withdrawHistoryStatus ==
-                    WithdrawHistoryStatus.success) {
-                  ToastLoader.remove();
-                  setState(() {});
-                } else if (withdrawState.withdrawHistoryStatus ==
-                    WithdrawHistoryStatus.error) {
-                  ToastLoader.remove();
-                  context.showSnackBar(withdrawState.message);
-                }
+    return Scaffold(
+      appBar: CustomAppbar(
+        title: "History",
+      ),
+      backgroundColor: Colors.black,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            HistoryWidget(
+              onTap: () {
+                NavRouter.push(context, DepositHistoryPage());
               },
-              builder: (context, withdrawState) {
-                return Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 16),
-                      child: Row(
-                        children: List.generate(
-                          items.length,
-                          (index) => GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                selectedIndex = index;
-                              });
-                              if (selectedIndex == 0) {
-                                context.read<DepositHistoryCubit>()
-                                  ..depositHistory();
-                              } else if (selectedIndex == 1) {
-                                context.read<WithdrawHistoryCubit>()
-                                  ..withdrawHistory();
-                              }
-                            },
-                            child: Container(
-                              margin: EdgeInsets.only(right: 12),
-                              width: 100,
-                              height: 34,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(6),
-                                color: selectedIndex == index
-                                    ? AppColors.secondary
-                                    : AppColors.fieldColor,
-                              ),
-                              child: Center(
-                                child: Text(
-                                  items[index],
-                                  style: context.textTheme.titleSmall?.copyWith(
-                                    color: selectedIndex == index
-                                        ? Colors.black
-                                        : AppColors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Divider(
-                      color: AppColors.grey3.withOpacity(.5),
-                      thickness: .2,
-                    ),
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Expanded(
-                        child: selectedIndex == 0
-                            ? ListView.builder(
-                                itemCount: depositState
-                                    .depositHistoryList.length,
-                                itemBuilder:
-                                    (BuildContext context, int index) {
-                                  return DepositHistoryWidget(
-                                    depositHistoryModel: depositState
-                                        .depositHistoryList[index], onSoldTap: () {  },
-                                  );
-                                })
-                            : ListView.builder(
-                                itemCount: withdrawState
-                                    .withdrawHistoryList.length,
-                                itemBuilder:
-                                    (BuildContext context, int index) {
-                                  return WithdrawHistoryWidget(
-                                    withdrawHistoryModel: withdrawState
-                                        .withdrawHistoryList[index],
-                                  );
-                                }))
-                  ],
-                );
+              leading:Image.asset(
+                'assets/images/png/currency_icon.png',
+                height: 40,
+                width: 40,
+                color: AppColors.secondary,
+              ) ,
+              title: 'Deposit History',
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(height: 20,),
+            ),
+            HistoryWidget(
+              onTap: () {
+                NavRouter.push(context, WithdrawHistoryPage());
               },
-            );
-          },
+              leading: Image.asset(
+                'assets/images/png/ic_withdraw_yellow.png',
+                height: 40,
+                width: 40,
+                color: AppColors.secondary,
+              ),
+              title: 'Withdraw History',
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(height: 20,),
+            ),
+            HistoryWidget(
+              onTap: () {
+                NavRouter.push(context, ProfitHistoryPage());
+              },
+              leading:Image.asset(
+                'assets/images/png/ic_available_profit.png',
+                height: 40,
+                width: 40,
+                color: AppColors.secondary,
+              ) ,
+              title: 'Profit History',
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(height: 20,),
+            ),
+            HistoryWidget(
+              onTap: () {
+                NavRouter.push(context, BonusHistoryPage());
+              },
+              leading: Image.asset(
+                'assets/images/png/ic_available_bonus.png',
+                height: 40,
+                width: 40,
+                color: AppColors.secondary,
+              ),
+              title: 'Bonus History',
+            ),Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(height: 20,),
+            ),
+            HistoryWidget(
+              onTap: () {
+                NavRouter.push(context, ExchangeHistoryPage());
+              },
+              leading: Image.asset('assets/images/png/ic_exchange.png',height: 40,
+                width: 40,),
+              title: 'Exchange History',
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(height: 20,),
+            ),
+            HistoryWidget(
+              onTap: () {
+                NavRouter.push(context, TradeHistoryPage());
+              },
+              leading: Image.asset('assets/images/png/icon_trade.png',height: 40,
+                width: 40,),
+              title: 'Trade History',
+            ),Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Divider(height: 20,),
+            ),
+            HistoryWidget(
+              onTap: () {
+                NavRouter.push(context, BuySellHistoryPage());
+              },
+              leading: Image.asset('assets/images/png/ic_copy_trade_yellow.png',height: 40,
+                width: 40,),
+              title: 'P2P Buy Sell History',
+            ),
+          ],
         ),
       ),
     );

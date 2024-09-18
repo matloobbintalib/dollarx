@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/authentication/models/base_response.dart';
+import 'package:dollarax/modules/authentication/models/base_response.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 
 import '../../../../../../core/exceptions/api_error.dart';

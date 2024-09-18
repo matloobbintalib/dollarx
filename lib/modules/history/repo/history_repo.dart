@@ -1,7 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/history/models/bonus_history_response.dart';
-import 'package:dollarx/modules/history/models/deposit_history_response.dart';
-import 'package:dollarx/modules/history/models/profit_history_response.dart';
+import 'package:dollarax/modules/history/models/bonus_history_response.dart';
+import 'package:dollarax/modules/history/models/deposit_history_response.dart';
+import 'package:dollarax/modules/history/models/exchange_history_response.dart';
+import 'package:dollarax/modules/history/models/profit_history_response.dart';
+import 'package:dollarax/modules/history/models/trade_history_response.dart';
+import 'package:dollarax/modules/history/pages/exchange_history_page.dart';
+import 'package:dollarax/modules/p2p_exchange/models/p2p_exchange_history_response.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../constants/api_endpoints.dart';
@@ -75,6 +79,54 @@ class HistoryRepository {
       await compute(bonusHistoryResponseFromJson, response.data);
       print('Response --- $response');
       return bonusHistoryResponse;
+    } on DioException catch (e, stackTrace) {
+      _log.e(e, stackTrace: stackTrace);
+      throw ApiError.fromDioException(e);
+    } catch (e) {
+      _log.e(e);
+      throw ApiError(message: '$e', code: 0);
+    }
+  }
+
+  Future<ExchangeHistoryResponse> exchangeHistory() async {
+    try {
+      var response = await _service.post(Endpoints.fundExchangeHistory);
+      print('Response --- ${response.data}');
+      ExchangeHistoryResponse exchangeHistoryResponse =
+      await compute(exchangeHistoryResponseFromJson, response.data);
+      print('Response --- $response');
+      return exchangeHistoryResponse;
+    } on DioException catch (e, stackTrace) {
+      _log.e(e, stackTrace: stackTrace);
+      throw ApiError.fromDioException(e);
+    } catch (e) {
+      _log.e(e);
+      throw ApiError(message: '$e', code: 0);
+    }
+  }
+
+  Future<TradeHistoryResponse> tradeHistory() async {
+    try {
+      var response = await _service.get(Endpoints.tradesHistory);
+      print('Response --- ${response.data}');
+      TradeHistoryResponse tradeHistoryResponse =
+      await compute(tradeHistoryResponseFromJson, response.data);
+      print('Response --- $response');
+      return tradeHistoryResponse;
+    } on DioException catch (e, stackTrace) {
+      _log.e(e, stackTrace: stackTrace);
+      throw ApiError.fromDioException(e);
+    } catch (e) {
+      _log.e(e);
+      throw ApiError(message: '$e', code: 0);
+    }
+  }
+
+  Future<P2PExchangeHistoryResponse> buySellExchangeHistory() async {
+    try {
+      var response = await _service.post(Endpoints.getP2PBuySellHistory);
+      print('Response --- ${response.data}');
+      return P2PExchangeHistoryResponse.fromJson(response.data);
     } on DioException catch (e, stackTrace) {
       _log.e(e, stackTrace: stackTrace);
       throw ApiError.fromDioException(e);

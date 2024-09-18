@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:dollarx/modules/authentication/models/register_input.dart';
+import 'package:dollarax/modules/authentication/models/register_input.dart';
 
 import '../../../../core/exceptions/api_error.dart';
 import '../../models/auth_response.dart';

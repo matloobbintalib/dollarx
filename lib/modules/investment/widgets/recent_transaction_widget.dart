@@ -1,7 +1,7 @@
 
 
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -15,62 +15,43 @@ class RecentTransactionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          margin: EdgeInsets.only(bottom: 8),
-          padding: EdgeInsets.symmetric(horizontal: 6,vertical: 4),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(6)),
-            color: AppColors.fieldColor,
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+    return Container(
+      margin: EdgeInsets.only(bottom: 8),
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(3)),
+        border: Border.all(color: AppColors.secondary)
+      ),
+      child: Column(
+        children: [
+          Row(
             children: [
-              Expanded(
-                child:Column(
-                  children: [
-                    Row(
-                      children: [
-                        Text("Type : ",
-                          style: context.textTheme.bodySmall?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300, fontSize: 11),textAlign: TextAlign.center,),
-                        Text(latestTransDatum.type,
-                          style: context.textTheme.bodySmall?.copyWith(color: AppColors.secondary, fontWeight: FontWeight.w300, fontSize: 11),textAlign: TextAlign.center,),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text("Price : ",
-                          style: context.textTheme.bodySmall?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300, fontSize: 11),textAlign: TextAlign.center,),
-                        Text(latestTransDatum.totalAmount+" USTD",
-                          style: context.textTheme.bodySmall?.copyWith(color: AppColors.secondary, fontWeight: FontWeight.w300, fontSize: 11),textAlign: TextAlign.center,),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              Image.asset(iconPath, width: 36,height: 36,color: AppColors.secondary,),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(latestTransDatum.createdAt,
-                      style: context.textTheme.bodySmall?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300, fontSize: 11)),
-                    Text(latestTransDatum.status,
-                      style: context.textTheme.bodyMedium?.copyWith(color: AppColors.secondary, fontWeight: FontWeight.w300))
-                  ],
-                ),
-              )
+              Text("Type : ",
+                style: context.textTheme.bodySmall
+                    ?.copyWith(fontWeight: FontWeight.w500,fontSize: 11),textAlign: TextAlign.center,),
+              Text(latestTransDatum.type,
+                style: context.textTheme.bodySmall?.copyWith(color: AppColors.secondary, fontWeight: FontWeight.w500, fontSize: 11),textAlign: TextAlign.center,),
+              Spacer(),
+              Text(latestTransDatum.createdAt.split(' ').first,
+                  style: context.textTheme.bodySmall?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300, fontSize: 11)),
             ],
           ),
-        ),
-      ],
+          SizedBox(height: 4,),
+          Row(
+            children: [
+              Text("Amount : ",
+                style: context.textTheme.bodySmall?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300, fontSize: 11),textAlign: TextAlign.center,),
+              Text(latestTransDatum.totalAmount+" USD",
+                style: context.textTheme.bodySmall?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300, fontSize: 11),textAlign: TextAlign.center,),
+              Spacer(),
+              Text(latestTransDatum.status,
+                  style: context.textTheme.bodyMedium?.copyWith(color: AppColors.white, fontWeight: FontWeight.w300,fontSize: 13))
+            ],
+          ),
+        ],
+      ),
     );
   }
 
-  String changeDateFormat(String inputDate) {
-    DateTime dateTime = DateTime.parse(inputDate);
-    String formattedDate = DateFormat('dd-MM-yyyy').format(dateTime);
-    return formattedDate;
-  }
+
 }

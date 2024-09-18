@@ -1,0 +1,1 @@
+ E:\\Matloob\\Personal-projects\\DollarX\\.dart_tool\\flutter_build\\f5b701352afa24adaae5e0e4c1ccef55\\native_assets.yaml: 

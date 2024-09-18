@@ -1,13 +1,14 @@
 
 
-import 'package:dollarx/constants/app_colors.dart';
+import 'package:dollarax/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HistoryWidget extends StatelessWidget {
-  final String leadingPath;
+  final Widget leading;
   final String title;
   final VoidCallback onTap;
-  const HistoryWidget({super.key, required this.leadingPath, required this.title, required this.onTap});
+  const HistoryWidget({super.key, required this.leading, required this.title, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +18,7 @@ class HistoryWidget extends StatelessWidget {
         onTap: onTap,
         horizontalTitleGap: 12,
         contentPadding: EdgeInsets.only(left: 20, right: 16),
-        leading: Image.asset(
-          leadingPath,
-          height: 40,
-          width: 40,
-          color: AppColors.secondary,
-        ),
+        leading: leading,
         trailing: Image.asset(
           "assets/images/png/ic_arrow_forward.png",
           width: 14,

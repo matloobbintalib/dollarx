@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/withdraw/cubit/withdraw_data/withdraw_data_state.dart';
+import 'package:dollarax/modules/withdraw/cubit/withdraw_data/withdraw_data_state.dart';
 
 import '../../../../../core/exceptions/api_error.dart';
 import '../../models/withdraw_data_response.dart';

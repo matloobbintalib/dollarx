@@ -1,8 +1,8 @@
 
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dollarx/ui/widgets/on_click.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/ui/widgets/on_click.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

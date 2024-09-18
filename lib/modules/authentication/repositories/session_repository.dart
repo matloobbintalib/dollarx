@@ -9,7 +9,9 @@ class SessionRepository {
 
   final _log = logger(SessionRepository);
 
-  SessionRepository({required StorageService storageService, required AuthSecuredStorage authSecuredStorage})
+  SessionRepository(
+      {required StorageService storageService,
+      required AuthSecuredStorage authSecuredStorage})
       : _authSecuredStorage = authSecuredStorage,
         _storageService = storageService;
 
@@ -36,5 +38,29 @@ class SessionRepository {
   Future<void> removeToken() async {
     await _authSecuredStorage.removeToken();
     _log.i('token removed');
+  }
+
+  Future<void> setTradeBalance(String value) async {
+    await _authSecuredStorage.writeTradeBalance(tradeBalance: value);
+  }
+
+  Future<void> setTradeROI(String value) async {
+    await _authSecuredStorage.writeTradeROI(tradeROI: value);
+  }
+
+  Future<String> getTradeBalance() async {
+    return await _authSecuredStorage.readTradeBalance();
+  }
+
+  Future<String> getTradeROI() async {
+    return await _authSecuredStorage.readTradeROI();
+  }
+
+  Future<void> removeTradeBalance() async {
+    await _authSecuredStorage.removeTradeBalance();
+  }
+
+  Future<void> removeTradeROI() async {
+    await _authSecuredStorage.removeTradeROI();
   }
 }

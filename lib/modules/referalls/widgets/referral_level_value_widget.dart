@@ -1,4 +1,4 @@
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/cupertino.dart';
 
 import '../../../constants/app_colors.dart';

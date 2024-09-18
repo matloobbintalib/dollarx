@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/authentication/models/reset_password_input.dart';
-import 'package:dollarx/modules/authentication/models/verify_otp_input.dart';
+import 'package:dollarax/modules/authentication/models/reset_password_input.dart';
+import 'package:dollarax/modules/authentication/models/verify_otp_input.dart';
 
 import '../../../constants/api_endpoints.dart';
 import '../../../core/exceptions/api_error.dart';
@@ -44,6 +44,9 @@ class AuthRepository {
     } on DioException catch (e, stackTrace) {
       _log.e(e, stackTrace: stackTrace);
       throw ApiError.fromDioException(e);
+    } on TypeError catch (e) {
+      _log.e(e.stackTrace);
+      throw ApiError(message: '$e', code: 0);
     } catch (e) {
       _log.e(e);
       throw ApiError(message: '$e', code: 0);
@@ -64,6 +67,9 @@ class AuthRepository {
     } on DioException catch (e, stackTrace) {
       _log.e(e, stackTrace: stackTrace);
       throw ApiError.fromDioException(e);
+    }on TypeError catch (e) {
+      _log.e(e.stackTrace);
+      throw ApiError(message: '$e', code: 0);
     } catch (e) {
       _log.e(e);
       throw ApiError(message: '$e', code: 0);

@@ -1,3 +1,4 @@
+import 'package:dollarax/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/asset_paths.dart';
@@ -16,23 +17,19 @@ import '../../constants/asset_paths.dart';
 
 final darkTheme = _getTheme();
 
-const _primary = Colors.deepPurple;
-const _light = Colors.blueGrey;
-const _secondary = Colors.amber;
+const _primary = Color(0xFF070707);
+const _light = Color(0xFFFFF1C7);
+const _secondary = Color(0xFFCCA354);
 
-const _background = Color(0xFF121212);
-const _light1 = Colors.white;
-const _light2 = Colors.white70;
-const _darker = Colors.black87;
-const _dark1 = Color(0xF4121212);
-const _dark2 = Color(0xF2171616);
-const _dark3 = Color(0xff232323);
-
-const _grey = Colors.grey;
+const _background = Color(0xFFFFFFFF);
+const _lightest = Colors.white;
+const _dark1 = Colors.black;
+const _dark2 = Colors.black87;
 const _divider = Colors.grey;
 const _disabled = Colors.grey;
 
-const _red = Color(0XFFCF6679);
+const _red = Colors.red;
+const _textColor = Color(0xFF9B9B9B);
 
 ThemeData _getTheme() {
   final colorScheme = _lightColorScheme;
@@ -47,9 +44,8 @@ ThemeData _getTheme() {
 
   return ThemeData(
     useMaterial3: true,
-    brightness: Brightness.dark,
+    brightness: Brightness.light,
     splashFactory: InkSplash.splashFactory,
-
     // set colors
     colorScheme: colorScheme,
     textTheme: textTheme,
@@ -57,34 +53,35 @@ ThemeData _getTheme() {
     scaffoldBackgroundColor: colorScheme.background,
     disabledColor: _disabled,
 
+
     /// ************************************** BottomNavigationBar **************************************
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: _dark3,
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: _light1,
-      unselectedItemColor: _grey,
-      selectedIconTheme: IconThemeData(color: _light1),
-      unselectedIconTheme: IconThemeData(color: _grey),
-      selectedLabelStyle: TextStyle(color: _light1),
-      unselectedLabelStyle: TextStyle(color: _grey),
+      selectedItemColor: Colors.white,
+
+      unselectedItemColor: AppColors.white,
+      selectedIconTheme: IconThemeData(color: _primary),
+      unselectedIconTheme: IconThemeData(color: AppColors.grey),
+      selectedLabelStyle: TextStyle(color: _primary,fontSize: 10),
+      unselectedLabelStyle: TextStyle(color: AppColors.grey,fontSize: 10),
     ),
 
     /// ************************************** AppBarTheme **************************************
     appBarTheme: const AppBarTheme(
-      backgroundColor: _dark3,
+      backgroundColor: _background,
       elevation: 1,
       centerTitle: true,
       surfaceTintColor: Colors.transparent,
       titleTextStyle: TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-        color: _light1,
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
+        color: _lightest,
       ),
     ),
 
     /// ************************************** InputDecoration **************************************
     inputDecorationTheme: InputDecorationTheme(
-      fillColor: _dark2,
+      fillColor: _light.withOpacity(.05),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(5.0),
         borderSide: BorderSide(
@@ -104,7 +101,7 @@ ThemeData _getTheme() {
       errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
         borderSide: const BorderSide(
-          color: _red,
+          color: Colors.red,
           width: 1.5,
         ),
       ),
@@ -112,7 +109,7 @@ ThemeData _getTheme() {
       isDense: true,
       contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       hintStyle: TextStyle(
-        color: _light1.withOpacity(.5),
+        color: _light.withOpacity(.6),
         fontSize: 16,
         fontWeight: FontWeight.w300,
       ),
@@ -122,26 +119,10 @@ ThemeData _getTheme() {
       ),
     ),
 
-    /// ************************************** CardTheme **************************************
-
-    cardTheme: const CardTheme(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(6)),
-        side: BorderSide(
-          width: 1,
-          color: _divider,
-        ),
-      ),
-      color: _dark1,
-      surfaceTintColor: Colors.transparent,
-      margin: EdgeInsets.zero,
-    ),
-
     /// ************************************** DialogTheme **************************************
     dialogTheme: DialogTheme(
-      backgroundColor: _dark3,
-      surfaceTintColor: _dark3,
+      backgroundColor: colorScheme.background,
+      surfaceTintColor: colorScheme.background,
 
       /// titleTextStyle: textTheme.titleLarge,
     ),
@@ -160,8 +141,9 @@ ThemeData _getTheme() {
         padding: _buttonPadding,
         backgroundColor: colorScheme.primary,
         foregroundColor: colorScheme.onPrimary,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
         textStyle: buttonTextStyle,
-        elevation: 2,
       ),
     ),
     outlinedButtonTheme: OutlinedButtonThemeData(
@@ -189,7 +171,7 @@ ThemeData _getTheme() {
     /// ************************************** SnackBarTheme **************************************
     snackBarTheme: SnackBarThemeData(
       behavior: SnackBarBehavior.floating,
-      backgroundColor: _darker,
+      backgroundColor: _dark1,
 
       /// contentTextStyle: primaryTextTheme.bodyLarge,
       shape: const RoundedRectangleBorder(
@@ -207,7 +189,7 @@ ThemeData _getTheme() {
     /// ************************************** BottomSheet **************************************
     bottomSheetTheme: const BottomSheetThemeData(
       showDragHandle: false,
-      backgroundColor: _dark3,
+      backgroundColor: _background,
       surfaceTintColor: Colors.transparent,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
@@ -239,25 +221,25 @@ ThemeData _getTheme() {
 /// ************************************** Color Scheme **************************************
 
 final _lightColorScheme = ColorScheme(
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
   // Primary
   primary: _primary,
-  onPrimary: _light1,
+  onPrimary: _lightest,
   primaryContainer: _primary.withOpacity(0.2),
-  onPrimaryContainer: _light1,
+  onPrimaryContainer: _lightest,
   // Secondary
   secondary: _secondary,
-  onSecondary: _dark1,
+  onSecondary: _light,
   secondaryContainer: _secondary.withOpacity(0.2),
   onSecondaryContainer: _dark1,
   // Error
   error: _red,
-  onError: _light1,
+  onError: _lightest,
   // Background
   background: _background,
   onBackground: _dark1,
   // Surface
-  surface: _light1,
+  surface: _lightest,
   onSurface: _dark1,
   // Outline
   outline: _divider,
@@ -266,15 +248,15 @@ final _lightColorScheme = ColorScheme(
 /// ************************************** Text Theme **************************************
 
 TextTheme _getTextTheme(ColorScheme colorScheme) {
-  const headlineColor = _light1;
+  const headlineColor = _background;
   const headlineWeight = FontWeight.w800;
   const headlineHeight = 1.2;
 
-  const titleColor = _light1;
+  const titleColor = _background;
   const titleWeight = FontWeight.w500;
   const titleHeight = 1.2;
 
-  const bodyColor = _light2;
+  const bodyColor = _background;
   const bodyWeight = FontWeight.normal;
   const bodyHeight = 1.5;
 
@@ -284,21 +266,21 @@ TextTheme _getTextTheme(ColorScheme colorScheme) {
     // Headline
     headlineLarge: TextStyle(
       fontSize: 24,
-      fontFamily: AssetPaths.aileronFont,
+
       height: headlineHeight,
       color: headlineColor,
       fontWeight: headlineWeight,
     ),
     headlineMedium: TextStyle(
       fontSize: 20,
-      fontFamily: AssetPaths.aileronFont,
+
       height: headlineHeight,
       color: headlineColor,
       fontWeight: headlineWeight,
     ),
     headlineSmall: TextStyle(
       fontSize: 18,
-      fontFamily: AssetPaths.aileronFont,
+
       height: headlineHeight,
       color: headlineColor,
       fontWeight: headlineWeight,
@@ -307,21 +289,21 @@ TextTheme _getTextTheme(ColorScheme colorScheme) {
     // Title
     titleLarge: TextStyle(
       fontSize: 18,
-      fontFamily: AssetPaths.aileronFont,
+
       height: titleHeight,
       color: titleColor,
       fontWeight: titleWeight,
     ),
     titleMedium: TextStyle(
       fontSize: 16,
-      fontFamily: AssetPaths.aileronFont,
+
       height: titleHeight,
       color: titleColor,
       fontWeight: titleWeight,
     ),
     titleSmall: TextStyle(
       fontSize: 14,
-      fontFamily: AssetPaths.aileronFont,
+
       height: titleHeight,
       color: titleColor,
       fontWeight: titleWeight,
@@ -330,21 +312,20 @@ TextTheme _getTextTheme(ColorScheme colorScheme) {
     // Body
     bodyLarge: TextStyle(
       fontSize: 16,
-      fontFamily: AssetPaths.aileronFont,
+
       height: bodyHeight,
       color: bodyColor,
       fontWeight: bodyWeight,
     ),
     bodyMedium: TextStyle(
       fontSize: 14,
-      fontFamily: AssetPaths.aileronFont,
+
       height: bodyHeight,
       color: bodyColor,
       fontWeight: bodyWeight,
     ),
     bodySmall: TextStyle(
       fontSize: 12,
-      fontFamily: AssetPaths.aileronFont,
       height: bodyHeight,
       color: bodyColor,
       fontWeight: bodyWeight,
@@ -352,22 +333,22 @@ TextTheme _getTextTheme(ColorScheme colorScheme) {
 
     // Label
     labelLarge: TextStyle(
-      fontSize: 14,
-      fontFamily: AssetPaths.aileronFont,
+      fontSize: 16,
+
       height: bodyHeight,
       color: labelColor,
       fontWeight: bodyWeight,
     ),
     labelMedium: TextStyle(
       fontSize: 12,
-      fontFamily: AssetPaths.aileronFont,
+
       height: bodyHeight,
       color: labelColor,
       fontWeight: bodyWeight,
     ),
     labelSmall: TextStyle(
       fontSize: 11,
-      fontFamily: AssetPaths.aileronFont,
+
       height: bodyHeight,
       color: labelColor,
       fontWeight: bodyWeight,

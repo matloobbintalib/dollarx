@@ -45,11 +45,10 @@ class _HtmlContentPageState extends State<HtmlContentPage> {
         appBar: CustomAppbar(
           title: widget.pageTitle,
         ),
-        backgroundColor: Colors.black,
         body: BlocBuilder<ContentPageCubit, ContentPageState>(
           builder: (context, state) {
             if(state.contentPageStatus == ContentPageStatus.loading){
-              return Center(child: LoadingIndicator(),);
+              return Center(child: LoadingIndicator(color: Colors.black,),);
             }
             if(state.contentPageStatus == ContentPageStatus.success){
               return Stack(
@@ -57,7 +56,6 @@ class _HtmlContentPageState extends State<HtmlContentPage> {
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: WebView(
-                      backgroundColor: Colors.black,
                       initialUrl: 'https://flutter.dev',
                       // Replace with the desired URL
                       javascriptMode: JavascriptMode.unrestricted,
@@ -70,7 +68,7 @@ class _HtmlContentPageState extends State<HtmlContentPage> {
                       onWebViewCreated: (
                           WebViewController webViewController) async {
                         _controller.complete(webViewController);
-                        _loadHtmlString(_controller, context, state.pages.first.htmlContent);
+                        _loadHtmlString(_controller, context, widget.pageTitle == "Privacy Policy"?state.pages.first.htmlContent : state.pages.last.htmlContent);
                         setState(() {
                           _isLoading = false;
                         });

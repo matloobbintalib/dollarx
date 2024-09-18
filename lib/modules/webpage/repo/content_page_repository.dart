@@ -1,7 +1,7 @@
 
 
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/webpage/models/content_page_response.dart';
+import 'package:dollarax/modules/webpage/models/content_page_response.dart';
 
 import '../../../constants/api_endpoints.dart';
 import '../../../core/exceptions/api_error.dart';

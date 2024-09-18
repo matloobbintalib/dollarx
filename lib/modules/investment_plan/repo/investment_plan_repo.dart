@@ -5,7 +5,7 @@
 
 
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/investment_plan/models/investment_plan_response.dart';
+import 'package:dollarax/modules/investment_plan/models/investment_plan_response.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../constants/api_endpoints.dart';

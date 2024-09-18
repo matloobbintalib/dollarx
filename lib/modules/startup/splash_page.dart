@@ -1,4 +1,4 @@
-import 'package:dollarx/modules/dashboard/pages/dashboard_page.dart';
+import 'package:dollarax/modules/dashboard/pages/dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -42,7 +42,7 @@ class SplashPage extends StatelessWidget {
             child: Center(
               child: Image.asset(
                 AssetPaths.logoPng,
-                width: 120,height: 120,
+                width: 220,
               ),
             ),
           ),

@@ -1,34 +1,39 @@
+import 'package:dollarax/utils/display/display_utils.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
 
 import '../../constants/app_colors.dart';
 import '../../utils/validators/validators.dart';
 
 class InputField extends StatefulWidget {
-  const InputField({
-    required this.controller,
-    required this.label,
-    required this.textInputAction,
-    this.keyboardType = TextInputType.text,
-    this.validator,
-    this.onFieldSubmitted,
-    this.obscureText = false,
-    this.suffixIcon,
-    this.prefixIcon,
-    this.maxLines,
-    this.inputFormatters = null,
-    this.readOnly = false,
-    this.onTap,
-    this.autoFocus = false,
-    super.key,
-    this.onChange,
-    this.fillColor = AppColors.fieldColor,
-    this.hintColor = AppColors.grey1,
-    this.borderRadius = 6,
-    this.hPadding = 12,
-    this.vPadding = 10,
-  });
+  const InputField(
+      {required this.controller,
+      required this.label,
+      required this.textInputAction,
+      this.keyboardType = TextInputType.text,
+      this.validator,
+      this.onFieldSubmitted,
+      this.obscureText = false,
+      this.suffixIcon,
+      this.prefixIcon,
+      this.maxLines,
+      this.inputFormatters = null,
+      this.readOnly = false,
+      this.onTap,
+      this.autoFocus = false,
+      super.key,
+      this.onChange,
+      this.fillColor = AppColors.fieldColor,
+      this.hintColor = AppColors.grey1,
+      this.borderColor = AppColors.secondary,
+      this.borderRadius = 6,
+      this.hPadding = 12,
+      this.vPadding = 10,
+      this.fontSize = 12,
+      this.textAlign = TextAlign.start,
+      this.fontWeight = FontWeight.normal,
+      this.onSaved});
 
   final TextEditingController controller;
   final String label;
@@ -43,13 +48,18 @@ class InputField extends StatefulWidget {
   final int? maxLines;
   final double borderRadius;
   final double hPadding;
+  final double fontSize;
+  final FontWeight fontWeight;
   final double vPadding;
   final bool readOnly;
   final VoidCallback? onTap;
   final bool autoFocus;
   final Function(String)? onChange;
+  final Function(String?)? onSaved;
   final Color fillColor;
   final Color hintColor;
+  final Color borderColor;
+  final TextAlign textAlign;
 
   InputField.name({
     required TextEditingController controller,
@@ -110,16 +120,15 @@ class InputField extends StatefulWidget {
     TextInputAction textInputAction = TextInputAction.next,
     ValueChanged<String>? onFieldSubmitted,
   }) : this(
-          controller: controller,
-          label: label,
-          textInputAction: textInputAction,
-          keyboardType: TextInputType.visiblePassword,
-          validator: Validators.password,
-          onFieldSubmitted: onFieldSubmitted,
-          obscureText: obscureText,
-          suffixIcon: suffixIcon,
-    maxLines: 1
-        );
+            controller: controller,
+            label: label,
+            textInputAction: textInputAction,
+            keyboardType: TextInputType.visiblePassword,
+            validator: Validators.password,
+            onFieldSubmitted: onFieldSubmitted,
+            obscureText: obscureText,
+            suffixIcon: suffixIcon,
+            maxLines: 1);
 
   InputField.confirmPassword({
     required TextEditingController controller,
@@ -131,26 +140,24 @@ class InputField extends StatefulWidget {
     TextInputAction textInputAction = TextInputAction.done,
     Key? key,
   }) : this(
-          key: key,
-          controller: controller,
-          label: label,
-          textInputAction: textInputAction,
-          keyboardType: TextInputType.visiblePassword,
-          validator: (String? value) {
-            if (value == null || value.isEmpty) {
-              return 'Required';
-            }
-            if (value != confirmPasswordController.text) {
-              return 'Passwords do not match';
-            }
-            return null;
-          },
-          onFieldSubmitted: onFieldSubmitted,
-          obscureText: obscureText,
-          suffixIcon: suffixIcon,
-    maxLines:
-      1
-        );
+            key: key,
+            controller: controller,
+            label: label,
+            textInputAction: textInputAction,
+            keyboardType: TextInputType.visiblePassword,
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Required';
+              }
+              if (value != confirmPasswordController.text) {
+                return 'Passwords do not match';
+              }
+              return null;
+            },
+            onFieldSubmitted: onFieldSubmitted,
+            obscureText: obscureText,
+            suffixIcon: suffixIcon,
+            maxLines: 1);
 
   InputField.number({
     required TextEditingController controller,
@@ -190,6 +197,7 @@ class _InputFieldState extends State<InputField> {
           textInputAction: widget.textInputAction,
           obscureText: widget.obscureText,
           validator: validator,
+          textAlign: widget.textAlign,
           enabled: true,
           onTap: widget.onTap,
           autofocus: widget.autoFocus,
@@ -199,30 +207,42 @@ class _InputFieldState extends State<InputField> {
           onFieldSubmitted: widget.onFieldSubmitted,
           maxLines: widget.maxLines,
           onChanged: widget.onChange,
+          onSaved: (value){
+            if(value == null){
+              widget.onSaved!(value.toString());
+              DisplayUtils.showToast(context, value.toString());
+            }
+          },
           style: TextStyle(
-            color: Colors.white, // Set your desired text color here
-          ),
+              color: Colors.white, // Set your desired text color here
+              fontSize: widget.fontSize,
+              fontWeight: widget.fontWeight),
           decoration: InputDecoration(
             hintText: widget.label,
             hintStyle: context.textTheme.bodySmall?.copyWith(
-              color: widget.hintColor,
-            ),
+                color: widget.hintColor,
+                fontSize: widget.fontSize,
+                fontWeight: widget.fontWeight),
             fillColor: widget.fillColor,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius),
-              borderSide:
-                  BorderSide(color: AppColors.secondary, ),
+              borderSide: BorderSide(
+                color: widget.borderColor,
+              ),
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: widget.hPadding, vertical: widget.vPadding),
+            contentPadding: EdgeInsets.symmetric(
+                horizontal: widget.hPadding, vertical: widget.vPadding),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius),
-              borderSide:
-                  BorderSide(color: AppColors.secondary,),
+              borderSide: BorderSide(
+                color: widget.borderColor,
+              ),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(widget.borderRadius),
-              borderSide:
-                  BorderSide(color: AppColors.secondary,),
+              borderSide: BorderSide(
+                color: widget.borderColor,
+              ),
             ),
             prefixIcon: widget.prefixIcon,
           ),

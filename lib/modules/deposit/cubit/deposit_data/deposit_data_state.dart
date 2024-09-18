@@ -1,6 +1,6 @@
 
 
-import 'package:dollarx/modules/deposit/models/deposit_data_response.dart';
+import 'package:dollarax/modules/deposit/models/deposit_data_response.dart';
 
 enum DepositDataStatus {
   initial,

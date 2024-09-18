@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/authentication/cubits/verify_otp/verify_otp_state.dart';
-import 'package:dollarx/modules/authentication/models/verify_otp_input.dart';
+import 'package:dollarax/modules/authentication/cubits/verify_otp/verify_otp_state.dart';
+import 'package:dollarax/modules/authentication/models/verify_otp_input.dart';
 
 import '../../../../core/exceptions/api_error.dart';
 import '../../models/base_response.dart';

@@ -1,6 +1,6 @@
 
 
-import 'package:dollarx/modules/withdraw/models/withdraw_data_response.dart';
+import 'package:dollarax/modules/withdraw/models/withdraw_data_response.dart';
 
 enum WithdrawDataStatus {
   initial,

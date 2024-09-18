@@ -1,5 +1,5 @@
 
-import 'package:dollarx/modules/home/models/dashoboard_data_response.dart';
+import 'package:dollarax/modules/home/models/dashoboard_data_response.dart';
 
 
 enum DashBoardRefreshStatus {

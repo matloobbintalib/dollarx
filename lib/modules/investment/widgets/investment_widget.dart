@@ -1,8 +1,8 @@
 
 
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/ui/widgets/on_click.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/ui/widgets/on_click.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

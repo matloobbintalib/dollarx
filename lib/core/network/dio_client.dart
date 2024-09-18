@@ -25,6 +25,13 @@ class DioClient extends DioForNative {
         return handler.next(options);
       }),
     );
+    interceptors.add(LogInterceptor(
+      request: false,
+      requestHeader: true,
+      requestBody: true,
+      responseHeader: false,
+      responseBody: true,
+    ));
 
   }
 }

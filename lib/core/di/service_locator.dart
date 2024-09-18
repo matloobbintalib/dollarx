@@ -1,12 +1,19 @@
-import 'package:dollarx/modules/authentication/repositories/auth_repository.dart';
-import 'package:dollarx/modules/authentication/repositories/session_repository.dart';
-import 'package:dollarx/modules/deposit/repo/deposit_repository.dart';
-import 'package:dollarx/modules/history/repo/history_repo.dart';
-import 'package:dollarx/modules/home/repo/home_repo.dart';
-import 'package:dollarx/modules/investment/repo/investment_repo.dart';
-import 'package:dollarx/modules/referalls/repo/referral_repository.dart';
-import 'package:dollarx/modules/user/repository/user_account_repository.dart';
-import 'package:dollarx/modules/withdraw/repo/withdraw_repo.dart';
+import 'package:dollarax/modules/authentication/repositories/auth_repository.dart';
+import 'package:dollarax/modules/authentication/repositories/session_repository.dart';
+import 'package:dollarax/modules/bank_account/repo/bank_info_repository.dart';
+import 'package:dollarax/modules/deposit/repo/deposit_repository.dart';
+import 'package:dollarax/modules/exchange/repo/exchange_repo.dart';
+import 'package:dollarax/modules/history/repo/history_repo.dart';
+import 'package:dollarax/modules/home/repo/home_repo.dart';
+import 'package:dollarax/modules/investment/repo/investment_repo.dart';
+import 'package:dollarax/modules/kyc_verification/repo/kyc_verification_repository.dart';
+import 'package:dollarax/modules/p2p_exchange/repo/p2p_repository.dart';
+import 'package:dollarax/modules/referalls/repo/referral_repository.dart';
+import 'package:dollarax/modules/trade/repo/trade_repository.dart';
+import 'package:dollarax/modules/transfer/repo/transfer_repository.dart';
+import 'package:dollarax/modules/user/repository/user_account_repository.dart';
+import 'package:dollarax/modules/wallet/repo/wallet_repository.dart';
+import 'package:dollarax/modules/withdraw/repo/withdraw_repo.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../config/environment.dart';
@@ -103,8 +110,33 @@ void setupLocator(Environment environment) async {
   sl.registerLazySingleton<ProfileRepository>(
     () => ProfileRepository(dioClient: sl()),
   );
-sl.registerLazySingleton<ContentPageRepository>(
+  sl.registerLazySingleton<ContentPageRepository>(
     () => ContentPageRepository(dioClient: sl()),
+  );
+
+  sl.registerLazySingleton<KycVerificationRepository>(
+    () => KycVerificationRepository(dioClient: sl()),
+  );
+
+  sl.registerLazySingleton<TransferRepository>(
+        () => TransferRepository(dioClient: sl()),
+  );
+
+  sl.registerLazySingleton<WalletRepository>(
+        () => WalletRepository(dioClient: sl()),
+  );
+  sl.registerLazySingleton<TradeRepository>(
+        () => TradeRepository(dioClient: sl()),
+  );
+sl.registerLazySingleton<ExchangeRepository>(
+        () => ExchangeRepository(dioClient: sl()),
+  );
+
+  sl.registerLazySingleton<BankInfoRepository>(
+    () => BankInfoRepository(),
+  );
+  sl.registerLazySingleton<P2PRepository>(
+    () => P2PRepository(),
   );
 
   /// ********************************************************************************************

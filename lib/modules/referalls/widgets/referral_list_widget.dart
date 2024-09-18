@@ -1,7 +1,7 @@
 
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/modules/referalls/models/referral_response.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/modules/referalls/models/referral_response.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/cupertino.dart';
 
 class ReferralListWidget extends StatelessWidget {

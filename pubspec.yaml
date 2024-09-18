@@ -1,13 +1,13 @@
-name: dollarx
+name: dollarax
 description: "A new Flutter project."
 
 publish_to: 'none'
 
 
-version: 1.0.0+1 #[major][minor][patch][build]
+version: 1.0.0+15 #[major][minor][patch][build]
 
 environment:
-  sdk: '>=3.2.3 <4.0.0'
+  sdk: '>=3.4.3 <4.0.0'
 
   # To see which dependencies have newer
   # versions available, run `flutter pub outdated`.
@@ -48,13 +48,20 @@ dependencies:
   flutter_image_compress: ^2.0.4
   curved_navigation_bar: ^1.0.3
   carousel_slider: ^4.2.1
-  intl: ^0.17.0
+  intl: ^0.19.0
   webview_flutter: ^2.0.14
   flutter_html: ^3.0.0-beta.2
   html: ^0.15.0
   flutter_launcher_icons: ^0.13.1
   flutter_app_badger: ^1.5.0
-
+  file_picker: ^6.1.1
+  syncfusion_flutter_gauges: ^26.1.39
+  arc_progress_bar_new: ^1.0.4
+  syncfusion_flutter_charts: ^26.1.39
+  dots_indicator: ^3.0.0
+  candlesticks: ^2.1.0
+  flutter_localization: ^0.2.0
+  shimmer: ^2.0.0
 
   # notifications
   firebase_messaging: ^14.6.8

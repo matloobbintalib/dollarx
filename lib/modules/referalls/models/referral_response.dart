@@ -38,7 +38,7 @@ class ReferralResponse {
 
 class ReferralModel {
   String userReferralId;
-  String parentId;
+  dynamic parentId;
   String firstLevelInvestment;
   String secondLevelInvestment;
   String thirdLevelInvestment;

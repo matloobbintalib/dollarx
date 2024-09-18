@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const primaryRed = Color(0xffE30613);
-  static const primaryGreen = Color(0xff008D36);
+  static const primaryGreen = Color(0xff00BF63);
   static const primaryLighter = Color(0xff3E4292);
-  static const secondary = Color(0xFFb79d62);
+  static const secondary = Color(0xFFCCA354);
   static const onSecondary = Color(0xFF574628);
 
   static const grey = Color(0xFF939393);
@@ -32,16 +32,19 @@ class AppColors {
   // PLAIN COLORS
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
+  static const jetBlack = Color(0xFF323335);
   static const red = Color(0xFFF44336);
+  static const lightRed = Color(0xFFF25659);
   static const darkRadish = Color(0xFF880903);
   static const blue = Color(0xFF005DB7);
   static const blue1 = Color(0xff0e4e6a);
   static const seeGreen = Color(0xff409a9d);
-  static const lightGreen = Color(0xff0BF5AD);
+  static const lightGreen = Color(0xff00BF63);
   static const darkYellow = Color(0xffa78645);
   static const darkGreen = Color(0xff364B2D);
   static const transparent = Color(0x00000000);
   static const selectedTabColor = Color(0xff9e8cb0);
   static const unSelectedTabColor = Color(0xffddd7cc);
   static const offWhiteColor = Color(0xffDAD2D2);
+  static const hindColor = Color(0xFF898886);
 }

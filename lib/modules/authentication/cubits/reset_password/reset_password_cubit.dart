@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/authentication/models/base_response.dart';
-import 'package:dollarx/modules/authentication/cubits/reset_password/reset_password_state.dart';
+import 'package:dollarax/modules/authentication/models/base_response.dart';
+import 'package:dollarax/modules/authentication/cubits/reset_password/reset_password_state.dart';
 
 import '../../../../core/exceptions/api_error.dart';
 import '../../models/reset_password_input.dart';

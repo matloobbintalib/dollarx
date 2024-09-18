@@ -1,7 +1,7 @@
-import 'package:dollarx/modules/investment_plan/cubit/investment_plan_cubit.dart';
-import 'package:dollarx/modules/investment_plan/cubit/investment_plan_state.dart';
-import 'package:dollarx/ui/widgets/empty_widget.dart';
-import 'package:dollarx/ui/widgets/loading_indicator.dart';
+import 'package:dollarax/modules/investment_plan/cubit/investment_plan_cubit.dart';
+import 'package:dollarax/modules/investment_plan/cubit/investment_plan_state.dart';
+import 'package:dollarax/ui/widgets/empty_widget.dart';
+import 'package:dollarax/ui/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,16 +29,27 @@ class InvestmentPlansPage extends StatelessWidget {
              return Center(child: LoadingIndicator(),);
            }
            if(state.investmentPlanStatus == InvestmentPlanStatus.success){
-             return Container(
-               padding: EdgeInsets.only(top: 20),
-               height: MediaQuery.of(context).size.height,
-               child: state.investmentPlans.isNotEmpty ? ListView.builder(
-                   itemCount: state.investmentPlans.length,
-                   itemBuilder: (BuildContext context, int index) {
-                     return InvestmentPlanWidget(investmentPlanModel:state.investmentPlans[index],);
-                   }):Center(child: Text("Data Not Found!",style: TextStyle(
-                   color: Colors.white
-               ),),),
+             return RefreshIndicator(
+               onRefresh: (){
+                 return Future.delayed(
+                   Duration(seconds: 1),
+                       () {
+                     context.read<InvestmentPlanCubit>()
+                       ..investmentPlans();
+                   },
+                 );
+               },
+               child: Container(
+                 padding: EdgeInsets.only(top: 20),
+                 height: MediaQuery.of(context).size.height,
+                 child: state.investmentPlans.isNotEmpty ? ListView.builder(
+                     itemCount: state.investmentPlans.length,
+                     itemBuilder: (BuildContext context, int index) {
+                       return InvestmentPlanWidget(investmentPlanModel:state.investmentPlans[index],);
+                     }):Center(child: Text("Data Not Found!",style: TextStyle(
+                     color: Colors.white
+                 ),),),
+               ),
              );
            }
            if(state.investmentPlanStatus == InvestmentPlanStatus.loading){

@@ -1,8 +1,8 @@
-import 'package:dollarx/ui/widgets/empty_widget.dart';
+import 'package:dollarax/ui/widgets/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dollarx/constants/app_colors.dart';
-import 'package:dollarx/utils/utils.dart';
+import 'package:dollarax/constants/app_colors.dart';
+import 'package:dollarax/utils/utils.dart';
 
 import '../../config/routes/nav_router.dart';
 

@@ -3,8 +3,8 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:dollarx/modules/authentication/models/base_response.dart';
-import 'package:dollarx/modules/withdraw/cubit/withdraw_save/withdraw_save_state.dart';
+import 'package:dollarax/modules/authentication/models/base_response.dart';
+import 'package:dollarax/modules/withdraw/cubit/withdraw_save/withdraw_save_state.dart';
 
 import '../../../../../../core/exceptions/api_error.dart';
 import '../../models/withdraw_input.dart';

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 
 import '../../constants/app_colors.dart';
 import '../../utils/validators/validators.dart';

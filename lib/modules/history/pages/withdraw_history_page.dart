@@ -1,6 +1,6 @@
 
-import 'package:dollarx/ui/widgets/empty_widget.dart';
-import 'package:dollarx/ui/widgets/loading_indicator.dart';
+import 'package:dollarax/ui/widgets/empty_widget.dart';
+import 'package:dollarax/ui/widgets/loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,17 +28,28 @@ class WithdrawHistoryPage extends StatelessWidget {
               return Center(child: LoadingIndicator(),);
             }
             if(state.withdrawHistoryStatus == WithdrawHistoryStatus.success){
-              return Container(
-                padding: EdgeInsets.only(top: 20),
-                height: MediaQuery.of(context).size.height,
-                child: state.withdrawHistoryList.isNotEmpty ? ListView.builder(
-                  itemCount: state.withdrawHistoryList.length,
-                    itemBuilder: (BuildContext context, int index) {
+              return RefreshIndicator(
+                onRefresh: (){
+                  return Future.delayed(
+                    Duration(seconds: 1),
+                        () {
+                      context.read<WithdrawHistoryCubit>()
+                        ..withdrawHistory();
+                    },
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.only(top: 20),
+                  height: MediaQuery.of(context).size.height,
+                  child: state.withdrawHistoryList.isNotEmpty ? ListView.builder(
+                    itemCount: state.withdrawHistoryList.length,
+                      itemBuilder: (BuildContext context, int index) {
 
-                      return WithdrawHistoryWidget(withdrawHistoryModel: state.withdrawHistoryList[index]);
-                    }):Center(child: Text("Data Not Found!",style: TextStyle(
-                    color: Colors.white
-                ),),),
+                        return WithdrawHistoryWidget(withdrawHistoryModel: state.withdrawHistoryList[index]);
+                      }):Center(child: Text("Data Not Found!",style: TextStyle(
+                      color: Colors.white
+                  ),),),
+                ),
               );
             }
             if(state.withdrawHistoryStatus == WithdrawHistoryStatus.error){

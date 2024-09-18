@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:dollarx/modules/webpage/cubit/content_page_cubit.dart';
-import 'package:dollarx/modules/webpage/cubit/content_page_state.dart';
-import 'package:dollarx/ui/widgets/empty_widget.dart';
+import 'package:dollarax/modules/webpage/cubit/content_page_cubit.dart';
+import 'package:dollarax/modules/webpage/cubit/content_page_state.dart';
+import 'package:dollarax/ui/widgets/empty_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';

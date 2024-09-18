@@ -1,5 +1,5 @@
-import 'package:dollarx/modules/user/cubits/user_cubit.dart';
-import 'package:dollarx/modules/user/models/user_model.dart';
+import 'package:dollarax/modules/user/cubits/user_cubit.dart';
+import 'package:dollarax/modules/user/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

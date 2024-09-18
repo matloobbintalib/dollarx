@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 
 import '../../constants/app_colors.dart';
 
@@ -14,6 +14,7 @@ class CustomDropDown extends StatefulWidget {
   final Color hintColor;
   final bool isOutline;
   final String? suffixIconPath;
+  final double suffixIconSize;
   final String? prefixIconPath;
   final double allPadding;
   final double verticalPadding;
@@ -27,7 +28,8 @@ class CustomDropDown extends StatefulWidget {
       {Key? key,
       required this.hint,
       required this.items,
-      this.height = 44,
+      this.height = 46,
+      this.suffixIconSize = 12,
       this.hintColor = AppColors.white,
       this.fillColor = AppColors.fieldColor,
       this.prefixIconColor = AppColors.secondary,
@@ -35,8 +37,9 @@ class CustomDropDown extends StatefulWidget {
       this.prefixIconPath,
       this.disable = false,
       this.enable = false,
-      this.borderColor = AppColors.lightGreyColor,
+      this.borderColor = AppColors.fieldColor,
       this.fontSize = 16,
+
       this.onSelect,
       this.isOutline = true,
       this.allPadding = 10,
@@ -50,12 +53,12 @@ class CustomDropDown extends StatefulWidget {
 }
 
 class _CustomDropDownState extends State<CustomDropDown> {
-  String? dropdownValue;
+  String dropdownValue = '';
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 46,
+      height: widget.height,
       alignment: Alignment.center,
       child: IgnorePointer(
         ignoring: widget.disable,
@@ -67,14 +70,14 @@ class _CustomDropDownState extends State<CustomDropDown> {
             icon: Image.asset(
               widget.suffixIconPath == null?
               'assets/images/png/ic_drop_down.png' : widget.suffixIconPath.toString(),
-              width: 12,
-              height: 12,
+              width: widget.suffixIconSize,
+              height: widget.suffixIconSize,
             ),
             iconSize: 12,
-            style: context.textTheme.bodySmall?.copyWith(fontSize: 11, color: Colors.white, fontWeight: FontWeight.w500),
+            style: context.textTheme.bodySmall?.copyWith(fontSize: 11, color: Colors.white, fontWeight: FontWeight.w300),
             hint: Text(
               widget.hint,
-              style: context.textTheme.bodySmall?.copyWith(fontSize: 11, color: widget.hintColor, fontWeight: FontWeight.w500),
+              style: context.textTheme.bodySmall?.copyWith(fontSize: 11, color: widget.hintColor, fontWeight: FontWeight.w300),
               overflow: TextOverflow.ellipsis,
             ),
             decoration: InputDecoration(
@@ -87,22 +90,22 @@ class _CustomDropDownState extends State<CustomDropDown> {
               fillColor: widget.fillColor,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
-                borderSide: BorderSide(color: AppColors.fieldColor, width: 1),
+                borderSide: BorderSide(color: widget.borderColor, width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
                 borderSide:
-                    BorderSide(color: AppColors.secondary, width: 1),
+                    BorderSide(color: widget.borderColor, width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
                 borderSide:
-                    BorderSide(color: AppColors.secondary, width: 1),
+                    BorderSide(color: widget.borderColor, width: 1),
               ),
               contentPadding: EdgeInsets.symmetric(horizontal: widget.horizontalPadding,vertical: widget.verticalPadding)
             ),
             dropdownColor: AppColors.secondary,
-            value: dropdownValue,
+            value: dropdownValue.isEmpty ? null :dropdownValue,
             borderRadius: BorderRadius.all(Radius.circular(6)),
             onChanged: (String? newValue) {
               if (widget.onSelect != null) {

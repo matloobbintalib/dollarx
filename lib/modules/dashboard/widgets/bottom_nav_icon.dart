@@ -1,4 +1,4 @@
-import 'package:dollarx/utils/extensions/extended_context.dart';
+import 'package:dollarax/utils/extensions/extended_context.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../constants/app_colors.dart';
@@ -27,7 +27,7 @@ class BottomNavIcon extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(filledPath, height: 24,width: 24,),
+            Image.asset(filledPath, height: 24,width: 24,color: Colors.white,),
             SizedBox(height: 6,),
             Text(
               label,

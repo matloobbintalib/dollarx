@@ -5,6 +5,9 @@ class UpdateProfileInput {
   String? mobile;
   String? city;
   String? address;
+  String? postal_code;
+  String? gender;
+  String? dob;
   MultipartFile? profile_pic;
 
   UpdateProfileInput({
@@ -12,6 +15,9 @@ class UpdateProfileInput {
     this.mobile,
     this.city,
     this.address,
+    this.postal_code,
+    this.gender,
+    this.dob,
     this.profile_pic
   });
 
@@ -20,6 +26,9 @@ class UpdateProfileInput {
     "mobile": mobile,
     "city": city,
     "address": address,
+    "postal_code": postal_code,
+    "gender": gender,
+    "dob": dob,
     "profile_pic": profile_pic,
   };
 
@@ -28,6 +37,9 @@ class UpdateProfileInput {
     "mobile": mobile,
     "city": city,
     "address": address,
+    "postal_code": postal_code,
+    "gender": gender,
+    "dob": dob,
     "profile_pic": profile_pic,
   });
 }

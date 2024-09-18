@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/referalls/cubit/referral_state.dart';
+import 'package:dollarax/modules/referalls/cubit/referral_state.dart';
 import '../../../../core/exceptions/api_error.dart';
 import '../models/referral_response.dart';
 import '../repo/referral_repository.dart';

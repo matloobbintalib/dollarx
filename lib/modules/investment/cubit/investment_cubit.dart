@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:dollarx/modules/investment/repo/investment_repo.dart';
+import 'package:dollarax/modules/investment/repo/investment_repo.dart';
 
 import '../../../../core/exceptions/api_error.dart';
 import '../models/investment_response.dart';
